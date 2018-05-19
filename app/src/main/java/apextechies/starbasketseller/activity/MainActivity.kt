@@ -6,12 +6,17 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.CompoundButton
+import android.widget.Toast
 import apextechies.starbasketseller.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -34,11 +39,65 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             movetoListingPage(1, cat_id)
         }
         subcategoryET.setOnClickListener {
-            movetoListingPage(2, cat_id)
+            if (!TextUtils.isEmpty(cat_id)) movetoListingPage(2, cat_id)
+            else Toast.makeText(this, "Select category first", Toast.LENGTH_SHORT).show()
         }
         subsubcategoryET.setOnClickListener {
-            movetoListingPage(3, subcat_id)
+            if (!TextUtils.isEmpty(subcat_id)) movetoListingPage(3, subcat_id)
+            else Toast.makeText(this, "Select Sub category first", Toast.LENGTH_SHORT).show()
         }
+        subCatTB.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+
+                if (isChecked) {
+                    subcatText.text = resources.getString(R.string.have_subcat)
+                    subcategoryET.isClickable = true
+                    subcatText.alpha = 0.9F
+                }
+                else {
+                    subcatText.text = resources.getString(R.string.have_nosubcat)
+                    subCatTB.isChecked = false
+                    subsubCatTB.isChecked = false
+                    subsubcatText.text = resources.getString(R.string.have_nosubsubcat)
+                    subcategoryET.isClickable = false
+                    subsubcategoryET.isClickable = false
+                    subcatText.alpha = 0.1F
+                    subsubcatText.alpha = 0.1F
+                    subcategoryET.text = "";
+                    subsubcategoryET.text = "";
+                }
+            }
+
+        })
+        subsubCatTB.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+
+                if (subCatTB.isChecked == true) {
+                    if (isChecked) {
+                        subsubcatText.text = resources.getString(R.string.have_subsubcat)
+                        subsubcatText.alpha = 0.9F
+                        subsubcategoryET.isClickable = true
+                    } else {
+                        subsubcatText.text = resources.getString(R.string.have_nosubsubcat)
+                        subsubcatText.alpha = 0.1F
+                        subsubcategoryET.isClickable = false
+                        subsubcategoryET.text = "";
+                    }
+                }else
+                {
+                    subsubCatTB.isChecked = false
+                }
+            }
+
+        })
+
+        addButton.setOnClickListener {
+            startActivity(Intent(this, AddProductAcvtivity::class.java)
+                    .putExtra("sub_cat_id", subcat_id)
+                    .putExtra("sub_sub_cat_id", subSubcat_id)
+            )
+        }
+
     }
 
     private fun movetoListingPage(i: Int, id: String?) {

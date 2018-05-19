@@ -10,13 +10,36 @@
 
    <TextView
        android:id="@+id/categoryET"
+       style="@style/ShankarEdittext"
        android:layout_width="match_parent"
        android:layout_height="@dimen/large"
-       android:hint="@string/hint_category"
-       android:fontFamily="@font/celias_medium"
+       android:layout_marginTop="8dp"
        android:background="@drawable/draw_border_grey"
-       style="@style/ShankarEdittext"/>
+       android:fontFamily="@font/celias_medium"
+       android:hint="@string/hint_category"
+       app:layout_constraintEnd_toEndOf="@+id/subCatTB"
+       app:layout_constraintTop_toTopOf="parent" />
 
+   <TextView
+       android:id="@+id/subcatText"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@+id/categoryET"
+       android:layout_marginTop="20dp"
+       android:paddingLeft="10dp"
+       android:alpha="0.9"
+       android:gravity="center_vertical"
+       android:fontFamily="@font/celias_bold"
+       android:text="@string/have_subcat"/>
+
+   <Switch
+       android:id="@+id/subCatTB"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toTopOf="@+id/subcatText"
+       android:layout_marginRight="15dp"
+       android:checked="true"
+       app:layout_constraintRight_toRightOf="parent"/>
 
    <TextView
        android:id="@+id/subcategoryET"
@@ -26,7 +49,28 @@
        android:fontFamily="@font/celias_medium"
        android:background="@drawable/draw_border_grey"
        style="@style/ShankarEdittext"
-       app:layout_constraintTop_toBottomOf="@+id/categoryET"/>
+       app:layout_constraintTop_toBottomOf="@+id/subcatText"/>
+
+   <TextView
+       android:id="@+id/subsubcatText"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@+id/subcategoryET"
+       android:layout_marginTop="20dp"
+       android:paddingLeft="10dp"
+       android:gravity="center_vertical"
+       android:fontFamily="@font/celias_bold"
+       android:text="@string/have_subsubcat"/>
+
+   <Switch
+       android:id="@+id/subsubCatTB"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toTopOf="@+id/subsubcatText"
+       android:layout_marginRight="15dp"
+       android:checked="true"
+       app:layout_constraintRight_toRightOf="parent"/>
+
 
    <TextView
        android:id="@+id/subsubcategoryET"
@@ -36,5 +80,15 @@
        android:fontFamily="@font/celias_medium"
        android:background="@drawable/draw_border_grey"
        style="@style/ShankarEdittext"
-       app:layout_constraintTop_toBottomOf="@+id/subcategoryET"/>
+       app:layout_constraintTop_toBottomOf="@+id/subsubcatText"/>
+
+   <Button
+       android:id="@+id/addButton"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/large"
+       android:layout_margin="25dp"
+       android:text="Add Product"
+       android:background="@color/maroon"
+       android:textColor="@color/white"
+       app:layout_constraintTop_toBottomOf="@+id/subsubcategoryET"/>
 </android.support.constraint.ConstraintLayout>

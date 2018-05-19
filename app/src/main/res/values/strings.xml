@@ -11,4 +11,15 @@
     <string name="hint_subsubcategory">Select SubSubCategory</string>
     <string name="email">Mail</string>
     <string name="pleaee_wait">Please wait...</string>
+    <string name="have_subcat">I have subcategory</string>
+    <string name="have_subsubcat">I have subsubcategory</string>
+    <string name="have_nosubcat">I don\'t have subcategory</string>
+    <string name="have_nosubsubcat">I don\'t have subsubcategory</string>
+    <string name="product_name">Enter product name</string>
+    <string name="product_actualprice">Enter actual price</string>
+    <string name="product_unit">Enter no. of quantity</string>
+    <string name="product_sellingprice">Enter selling price</string>
+    <string name="product_short_description">Type sort description</string>
+    <string name="product_full_description">Enter full description</string>
+    <string name="add_product">Add Product</string>
 </resources>

@@ -8,4 +8,5 @@ public class ApiUrl {
     public static final String CATEGORYLIST = "get_home_category";
     public static final String SUBCATEGORYLIST = "get_home_subcategory";
     public static final String SUBSUBCATEGORYLIST = "get_home_sub_subcategory";
+    public static final String INSERTPRODUCT = "insert_product";
 }

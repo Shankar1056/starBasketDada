@@ -58,18 +58,6 @@ public class Utilz {
     }
 
 
-    public static int getDateFromString(String dateStr) {
-        int date = 0;
-        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            Date parsedDate = DATE_FORMAT.parse(dateStr);
-            date = parsedDate.getDate();
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
 
 
     public static void showDailog(Context c, String msg) {
@@ -83,6 +71,24 @@ public class Utilz {
         if (dialog != null)
             dialog.cancel();
     }
+
+    public static void showToast(Context context, String message){
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public static int getDateFromString(String dateStr) {
+        int date = 0;
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date parsedDate = DATE_FORMAT.parse(dateStr);
+            date = parsedDate.getDate();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
 
     public static String getCurrentDate(Context askQuestion) {
         Calendar c = Calendar.getInstance();

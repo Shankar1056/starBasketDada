@@ -22,7 +22,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ListingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="StarBasket">
+
+        </activity>
+        <activity android:name=".activity.AddProductAcvtivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/add_product">
 
         </activity>
     </application>

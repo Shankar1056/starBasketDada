@@ -50,6 +50,9 @@ class ListingActivity : AppCompatActivity() {
         }
 
         //searchET.addTextChangedListener(object in )
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun getProductCategory() {
@@ -66,7 +69,7 @@ class ListingActivity : AppCompatActivity() {
                     })
                 }else{
                     Toast.makeText(this@ListingActivity, "" + result.msg, Toast.LENGTH_SHORT).show()
-                }g
+                }
             }
             override fun onFailure(error: String) {
                 Utilz.closeDialog()

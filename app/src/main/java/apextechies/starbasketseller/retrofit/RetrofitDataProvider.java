@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import apextechies.starbasketseller.R;
 import apextechies.starbasketseller.model.CategoryModel;
+import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
 import okhttp3.OkHttpClient;
@@ -121,6 +122,33 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<SubSubCategoryModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void insertProduct(String sub_cat_id, String sub_sub_cat_id, String name, String unit, String actual_price, String selling_price, String discount, String short_description, String full_description, String seller_id, String created_date, final DownlodableCallback<InsertProductModel> callback) {
+        createRetrofitService().insertProduct(sub_cat_id, sub_sub_cat_id, name, unit, actual_price, selling_price, discount, short_description, full_description, seller_id, created_date).enqueue(
+                new Callback<InsertProductModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<InsertProductModel> call, @NonNull final Response<InsertProductModel> response) {
+                        if (response.isSuccessful()) {
+                            InsertProductModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<InsertProductModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
                     }
