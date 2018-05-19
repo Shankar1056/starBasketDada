@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+   <TextView
+       android:id="@+id/categoryET"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/large"
+       android:hint="@string/hint_category"
+       android:fontFamily="@font/celias_medium"
+       android:background="@drawable/draw_border_grey"
+       style="@style/ShankarEdittext"/>
+
+
+   <TextView
+       android:id="@+id/subcategoryET"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/large"
+       android:hint="@string/hint_subcategory"
+       android:fontFamily="@font/celias_medium"
+       android:background="@drawable/draw_border_grey"
+       style="@style/ShankarEdittext"
+       app:layout_constraintTop_toBottomOf="@+id/categoryET"/>
+
+   <TextView
+       android:id="@+id/subsubcategoryET"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/large"
+       android:hint="@string/hint_subsubcategory"
+       android:fontFamily="@font/celias_medium"
+       android:background="@drawable/draw_border_grey"
+       style="@style/ShankarEdittext"
+       app:layout_constraintTop_toBottomOf="@+id/subcategoryET"/>
+</android.support.constraint.ConstraintLayout>
