@@ -51,6 +51,9 @@ class ListingActivity : AppCompatActivity() {
 
         //searchET.addTextChangedListener(object in )
         toolbar.setNavigationOnClickListener {
+            val intent = Intent()
+            intent.putExtra("ID", 0)
+            setResult(2, intent)
             finish()
         }
     }
@@ -148,10 +151,10 @@ class ListingActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         val intent = Intent()
-        intent.putExtra("ID", 0)
+        intent.putExtra("ID", "0")
         setResult(2, intent)
-        finish()//finishing activity`
+        super.onBackPressed()
+        //finish()//finishing activity`
     }
 }

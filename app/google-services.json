@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "476359998518",
+    "firebase_url": "https://starbasket-5f5d9.firebaseio.com",
+    "project_id": "starbasket-5f5d9",
+    "storage_bucket": "starbasket-5f5d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476359998518:android:cda0d886909a04ad",
+        "android_client_info": {
+          "package_name": "apextechies.starbasketseller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476359998518-ad9288a1mrmf6t0o7hkutpjnct19k05e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMFRKsLGxWSX3DiFS_NmnX2NP6pqz3ymA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

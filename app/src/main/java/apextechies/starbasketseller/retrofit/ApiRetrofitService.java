@@ -3,6 +3,7 @@ package apextechies.starbasketseller.retrofit;
 
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
+import apextechies.starbasketseller.model.LoginModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
 import retrofit2.Call;
@@ -39,7 +40,14 @@ public interface ApiRetrofitService {
                                            @Field("actual_price") String actual_price, @Field("selling_price") String selling_price,
                                            @Field("discount") String discount, @Field("short_description") String short_description,
                                            @Field("full_description") String full_description, @Field("seller_id") String seller_id,
-                                           @Field("created_date") String created_date );
+                                           @Field("created_date") String created_date);
 
+    @POST(ApiUrl.LOGIN)
+    @FormUrlEncoded
+    Call<LoginModel> login(@Field("phone") String phone);
+
+    @POST(ApiUrl.SIGNUP)
+    @FormUrlEncoded
+    Call<LoginModel> signup(@Field("name") String name, @Field("email") String email, @Field("password") String password, @Field("phone") String phone, @Field("business_name") String business_name, @Field("address") String address, @Field("created_date") String created_date);
 
 }

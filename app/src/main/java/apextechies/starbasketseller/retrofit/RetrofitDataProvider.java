@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import apextechies.starbasketseller.R;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
+import apextechies.starbasketseller.model.LoginModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
 import okhttp3.OkHttpClient;
@@ -149,6 +150,60 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<InsertProductModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void login(String phone, final DownlodableCallback<LoginModel> callback) {
+        createRetrofitService().login(phone).enqueue(
+                new Callback<LoginModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<LoginModel> call, @NonNull final Response<LoginModel> response) {
+                        if (response.isSuccessful()) {
+                            LoginModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void signup(String name, String email, String password, String phone, String business_name, String address, String created_date, final DownlodableCallback<LoginModel> callback) {
+        createRetrofitService().signup(name, email, password, phone, business_name, address, created_date).enqueue(
+                new Callback<LoginModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<LoginModel> call, @NonNull final Response<LoginModel> response) {
+                        if (response.isSuccessful()) {
+                            LoginModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<LoginModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
                     }

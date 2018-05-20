@@ -8,6 +8,7 @@ import apextechies.starbasketseller.R
 import apextechies.starbasketseller.adapter.CatListingAdapter
 import apextechies.starbasketseller.allinterface.OnItemClickListener
 import apextechies.starbasketseller.common.AppConstants
+import apextechies.starbasketseller.common.ClsGeneral
 import apextechies.starbasketseller.common.Utilz
 import apextechies.starbasketseller.model.CategoryModel
 import apextechies.starbasketseller.model.InsertProductModel
@@ -59,10 +60,11 @@ class AddProductAcvtivity : AppCompatActivity() {
             Utilz.showDailog(this, resources.getString(R.string.pleaee_wait))
             retrofitDataProvider!!.insertProduct(intent.getStringExtra("sub_cat_id"), intent.getStringExtra("sub_sub_cat_id"),
                     productName.text.toString(), productUnit.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
-                    productFullDescription.text.toString(), "1", formattedDate,object : DownlodableCallback<InsertProductModel> {
+                    productFullDescription.text.toString(), ClsGeneral.getStrPreferences(this, AppConstants.USERID), formattedDate,object : DownlodableCallback<InsertProductModel> {
                 override fun onSuccess(result: InsertProductModel) {
                     if (result.status!!.contains(AppConstants.TRUE)) {
                         Utilz.closeDialog()
+                        finish()
                     }else{
                         Toast.makeText(this@AddProductAcvtivity, "" + result.msg, Toast.LENGTH_SHORT).show()
                     }

@@ -13,13 +13,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name"
+            android:label="@string/seller_dasboard"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.ListingActivity"
             android:theme="@style/AppTheme.NoActionBar"
@@ -31,6 +27,26 @@
             android:label="@string/add_product">
 
         </activity>
+        <activity android:name=".splash.SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/register">
+
+        </activity>
+        <activity android:name=".splash.SplashActivity"
+            android:theme="@style/MyThemeFullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            xmlns:tools="http://schemas.android.com/tools"
+            android:name="io.fabric.ApiKey"
+            android:value="185cd65e35579c876af0ada8ca5fcc40ac8cded2"
+            tools:replace="android:value"/>
+
     </application>
 
 </manifest>

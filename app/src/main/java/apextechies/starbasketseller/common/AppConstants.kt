@@ -5,7 +5,8 @@ package apextechies.starbasketseller.common
  */
 
 object AppConstants {
-    val TRUE = "true"
-    val POSITION = "Position"
-    val TEACHER_DETAILS = "Teacher_Details"
+    var TRUE = "true"
+    var POSITION = "Position"
+    var TEACHER_DETAILS = "Teacher_Details"
+    var USERID = "user_id"
 }
