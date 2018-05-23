@@ -41,6 +41,11 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.ProductListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <meta-data
             xmlns:tools="http://schemas.android.com/tools"
             android:name="io.fabric.ApiKey"

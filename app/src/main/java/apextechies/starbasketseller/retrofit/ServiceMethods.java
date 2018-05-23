@@ -4,6 +4,7 @@ package apextechies.starbasketseller.retrofit;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
+import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
 
@@ -21,6 +22,8 @@ public interface ServiceMethods {
 
     void login(String phone, DownlodableCallback<LoginModel> callback);
     void signup(String name, String email, String password, String phone, String business_name, String address,String created_date, DownlodableCallback<LoginModel> callback);
-    /* void teacherList(DownlodableCallback<TeacherListModel> callback);
-*/
+    void productList(String seller_id, DownlodableCallback<ProductListModel> callback);
+    void insertUpdate(String id, String prod_id, String unit, String actual_price, String selling_price,
+                      String discount, String short_description, String full_description, String created_date, String insertupdate,
+                      DownlodableCallback<InsertProductModel> callback);
 }

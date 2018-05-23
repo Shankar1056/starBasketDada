@@ -31,7 +31,7 @@ class CatListingAdapter (private val context: Context, private var catName: Arra
         holder.namrTV.setText(catName[position].name)
 
         holder.itemView.setOnClickListener {
-            onItemClickListener.onClick(position)
+            onItemClickListener.onClick(position,"")
         }
 
     }

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/topCV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true">
+
+        <android.support.constraint.ConstraintLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:id="@+id/secondCV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/celias_medium"
+                android:text="vnisi jrnjein  "
+                android:textSize="17sp"
+                android:layout_margin="10dp"
+                app:layout_constraintRight_toLeftOf="@+id/arrowIV"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvUnitCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:text="5 unit"
+                android:paddingBottom="5dp"
+                android:fontFamily="@font/celias_medium"
+                app:layout_constraintLeft_toLeftOf="@+id/tvProductName"
+                app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+
+            <ImageView
+                android:id="@+id/arrowIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/down_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v7.widget.CardView>
+    <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/consLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/secondCV"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/editTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/edit"
+            android:fontFamily="@font/celias_bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Edit"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/deleteTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/delete"
+            android:fontFamily="@font/celias_bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Delete"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@+id/editTV"
+            app:layout_constraintRight_toLeftOf="@+id/addTV"/>
+
+        <TextView
+            android:id="@+id/addTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/add"
+            android:fontFamily="@font/celias_bold"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Add Varient"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="10dp"/>
+    </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+   <!-- <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/grey_750"
+        app:layout_constraintTop_toBottomOf="@+id/consLayout"/>-->
+</android.support.constraint.ConstraintLayout>

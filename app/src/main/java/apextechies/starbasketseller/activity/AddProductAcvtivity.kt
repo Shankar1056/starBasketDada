@@ -1,5 +1,6 @@
 package apextechies.starbasketseller.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -58,12 +59,15 @@ class AddProductAcvtivity : AppCompatActivity() {
         else if (TextUtils.isEmpty(productFullDescription.text.toString().trim())) Utilz.showToast(this, "Describe about your product")
         else{
             Utilz.showDailog(this, resources.getString(R.string.pleaee_wait))
+            if (intent.getStringExtra("operation").equals("newinsert")){
+
             retrofitDataProvider!!.insertProduct(intent.getStringExtra("sub_cat_id"), intent.getStringExtra("sub_sub_cat_id"),
                     productName.text.toString(), productUnit.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
                     productFullDescription.text.toString(), ClsGeneral.getStrPreferences(this, AppConstants.USERID), formattedDate,object : DownlodableCallback<InsertProductModel> {
                 override fun onSuccess(result: InsertProductModel) {
                     if (result.status!!.contains(AppConstants.TRUE)) {
                         Utilz.closeDialog()
+                        startActivity(Intent(this@AddProductAcvtivity, ProductListActivity::class.java))
                         finish()
                     }else{
                         Toast.makeText(this@AddProductAcvtivity, "" + result.msg, Toast.LENGTH_SHORT).show()
@@ -79,6 +83,30 @@ class AddProductAcvtivity : AppCompatActivity() {
                     Toast.makeText(this@AddProductAcvtivity, "Something went wrong, Please try again!!", Toast.LENGTH_SHORT).show()
                 }
             })
+            }else{
+                retrofitDataProvider!!.insertUpdate("", intent.getStringExtra("id"),
+                        productUnit.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
+                        productFullDescription.text.toString(), formattedDate, intent.getStringExtra("operation") ,object : DownlodableCallback<InsertProductModel> {
+                    override fun onSuccess(result: InsertProductModel) {
+                        if (result.status!!.contains(AppConstants.TRUE)) {
+                            Utilz.closeDialog()
+                            startActivity(Intent(this@AddProductAcvtivity, ProductListActivity::class.java))
+                            finish()
+                        }else{
+                            Toast.makeText(this@AddProductAcvtivity, "" + result.msg, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    override fun onFailure(error: String) {
+                        Utilz.closeDialog()
+                        Toast.makeText(this@AddProductAcvtivity, "" + error, Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onUnauthorized(errorNumber: Int) {
+                        Utilz.closeDialog()
+                        Toast.makeText(this@AddProductAcvtivity, "Something went wrong, Please try again!!", Toast.LENGTH_SHORT).show()
+                    }
+                })
+            }
         }
 
     }

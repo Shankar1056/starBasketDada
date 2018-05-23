@@ -1,5 +1,5 @@
 package apextechies.starbasketseller.allinterface
 
 interface OnItemClickListener {
-    fun onClick(pos: Int)
+    fun onClick(pos: Int, text: String)
 }

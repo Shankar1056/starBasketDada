@@ -12,6 +12,7 @@ import apextechies.starbasketseller.R;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
+import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
 import okhttp3.OkHttpClient;
@@ -210,6 +211,62 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
                 }
         );
     }
+
+    @Override
+    public void productList(String seller_id, final DownlodableCallback<ProductListModel> callback) {
+        createRetrofitService().productList(seller_id).enqueue(
+                new Callback<ProductListModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<ProductListModel> call, @NonNull final Response<ProductListModel> response) {
+                        if (response.isSuccessful()) {
+                            ProductListModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<ProductListModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void insertUpdate(String id, String prod_id, String unit, String actual_price, String selling_price, String discount, String short_description, String full_description, String created_date, String insertupdate, final DownlodableCallback<InsertProductModel> callback) {
+        createRetrofitService().insertUpdateVarient(id, prod_id, unit, actual_price, selling_price, discount, short_description, full_description, created_date, insertupdate).enqueue(
+                new Callback<InsertProductModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<InsertProductModel> call, @NonNull final Response<InsertProductModel> response) {
+                        if (response.isSuccessful()) {
+                            InsertProductModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<InsertProductModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+
 
 
    /* @Override

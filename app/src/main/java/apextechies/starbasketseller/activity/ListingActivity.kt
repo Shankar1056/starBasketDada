@@ -32,8 +32,7 @@ class ListingActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         retrofitDataProvider = RetrofitDataProvider(this)
-        commonRV.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
-
+        commonRV.layoutManager = LinearLayoutManager(this)
         try {
             pos = intent.getIntExtra("pos", 0)
         } catch (e: NumberFormatException) {
@@ -65,7 +64,7 @@ class ListingActivity : AppCompatActivity() {
                 if (result.status!!.contains(AppConstants.TRUE)) {
                     Utilz.closeDialog()
                     commonRV.adapter = CatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
-                        override fun onClick(pos: Int) {
+                        override fun onClick(pos: Int, text: String) {
                             sendDataBack(result.data!![pos].id, result.data!![pos].name)
                         }
 
@@ -94,7 +93,7 @@ class ListingActivity : AppCompatActivity() {
                 Utilz.closeDialog()
                 if (result.status!!.contains(AppConstants.TRUE)) {
                     commonRV.adapter = SubCatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
-                        override fun onClick(pos: Int) {
+                        override fun onClick(pos: Int, text: String) {
                             sendDataBack(result.data!![pos].id, result.data!![pos].name)
                         }
 
@@ -121,7 +120,7 @@ class ListingActivity : AppCompatActivity() {
                 Utilz.closeDialog()
                 if (result.status!!.contains(AppConstants.TRUE)) {
                     commonRV.adapter = SubSubCatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
-                        override fun onClick(pos: Int) {
+                        override fun onClick(pos: Int, text: String) {
                             sendDataBack(result.data!![pos].id, result.data!![pos].name)
                         }
 

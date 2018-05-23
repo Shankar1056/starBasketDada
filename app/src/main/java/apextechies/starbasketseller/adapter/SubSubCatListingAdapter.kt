@@ -33,7 +33,7 @@ class SubSubCatListingAdapter (private val context: Context, private var catName
 
 
         holder.itemView.setOnClickListener {
-            onItemClickListener.onClick(position)
+            onItemClickListener.onClick(position,"")
         }
 
     }

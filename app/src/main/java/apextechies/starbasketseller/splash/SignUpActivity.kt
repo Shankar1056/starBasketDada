@@ -9,6 +9,7 @@ import android.widget.Toast
 import apextechies.starbasketseller.R
 import apextechies.starbasketseller.activity.MainActivity
 import apextechies.starbasketseller.common.AppConstants
+import apextechies.starbasketseller.common.ClsGeneral
 import apextechies.starbasketseller.common.Utilz
 import apextechies.starbasketseller.model.LoginModel
 import apextechies.starbasketseller.retrofit.DownlodableCallback
@@ -58,6 +59,7 @@ class SignUpActivity : AppCompatActivity(){
                 override fun onSuccess(result: LoginModel) {
                     if (result.status!!.contains(AppConstants.TRUE)) {
                         Utilz.closeDialog()
+                        ClsGeneral.setPreferences(this@SignUpActivity, AppConstants.USERID, result.data!![0].id)
                         startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
                         finishAffinity()
                     }else{

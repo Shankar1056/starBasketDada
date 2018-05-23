@@ -11,4 +11,6 @@ public class ApiUrl {
     public static final String INSERTPRODUCT = "insert_product";
     public static final String LOGIN = "login";
     public static final String SIGNUP = "signup";
+    public static final String PRODUCTLIST = "get_productList";
+    public static final String INSERTUPDATEVARIENT = "insert_update_varient";
 }

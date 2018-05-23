@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(Intent(this, AddProductAcvtivity::class.java)
                     .putExtra("sub_cat_id", subcat_id)
                     .putExtra("sub_sub_cat_id", subSubcat_id)
+                    .putExtra("operation", "newinsert")
             )
         }
 
@@ -159,8 +160,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         val id = item.itemId
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_productList) {
+            startActivity(Intent(this, ProductListActivity::class.java))
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
