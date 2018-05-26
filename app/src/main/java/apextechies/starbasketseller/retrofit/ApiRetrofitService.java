@@ -62,5 +62,8 @@ public interface ApiRetrofitService {
                                                @Field("discount") String discount, @Field("short_description") String short_description,
                                                @Field("full_description") String full_description, @Field("created_date") String created_date,
                                                @Field("insertupdate") String insertupdate);
+    @POST(ApiUrl.DELETEVARIENT)
+    @FormUrlEncoded
+    Call<InsertProductModel> deleteProduct(@Field("id") String seller_id, @Field("prod_id") String prod_id, @Field("all") String delete);
 
 }

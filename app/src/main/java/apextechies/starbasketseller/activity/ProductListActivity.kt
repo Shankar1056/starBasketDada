@@ -39,15 +39,24 @@ class ProductListActivity: AppCompatActivity(){
                     RVproduct.adapter = ProductListAdapter(this@ProductListActivity, result.data!!, R.layout.product_list_row, object : OnItemClickListener {
                         override fun onClick(pos: Int, text: String) {
                         if (text.equals("edit")){
-                            Toast.makeText(this@ProductListActivity, text, Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@ProductListActivity, ProductVarientDeleteAcvtivity::class.java)
+                                    .putParcelableArrayListExtra("list", result.data!![pos].unitdetails)
+                                    .putExtra("name", result.data!![pos].name)
+                                    .putExtra("operation", "update")
+                            )
                         }
                             else if (text.equals("delete")){
-                            Toast.makeText(this@ProductListActivity, text, Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@ProductListActivity, ProductVarientDeleteAcvtivity::class.java)
+                                    .putParcelableArrayListExtra("list", result.data!![pos].unitdetails)
+                                    .putExtra("name", result.data!![pos].name)
+                                    .putExtra("operation", "update")
+                            )
 
                         }
                         else if (text.equals("add")){
                             startActivity(Intent(this@ProductListActivity, AddProductAcvtivity::class.java)
-                                    .putExtra("id", result.data!![pos].id)
+                                    .putExtra("id", "")
+                                    .putExtra("prod_id", result.data!![pos].id)
                                     .putExtra("operation", "insert")
                             )
                         }

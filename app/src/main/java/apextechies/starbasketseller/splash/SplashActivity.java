@@ -142,9 +142,11 @@ public class SplashActivity extends AppCompatActivity {
                     ClsGeneral.setPreferences(SplashActivity.this, AppConstants.INSTANCE.getUSERID(), result.getData().get(0).getId());
                     if (!TextUtils.isEmpty(result.getData().get(0).getEmail())){
                         startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        finish();
                     }else {
                         startActivity(new Intent(SplashActivity.this, SignUpActivity.class)
                         .putExtra("mobile",result.getData().get(0).getPhone()));
+                        finish();
                     }
                 }
                 else {

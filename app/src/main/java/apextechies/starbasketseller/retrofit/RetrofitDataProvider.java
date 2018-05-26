@@ -266,6 +266,33 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
         );
     }
 
+    @Override
+    public void deleteProduct(String id, String prod_id, String delete, final DownlodableCallback<InsertProductModel> callback) {
+        createRetrofitService().deleteProduct(id, prod_id, delete).enqueue(
+                new Callback<InsertProductModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<InsertProductModel> call, @NonNull final Response<InsertProductModel> response) {
+                        if (response.isSuccessful()) {
+                            InsertProductModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<InsertProductModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
 
 
 

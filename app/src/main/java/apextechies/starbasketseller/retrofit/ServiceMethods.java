@@ -26,4 +26,9 @@ public interface ServiceMethods {
     void insertUpdate(String id, String prod_id, String unit, String actual_price, String selling_price,
                       String discount, String short_description, String full_description, String created_date, String insertupdate,
                       DownlodableCallback<InsertProductModel> callback);
+
+    void deleteProduct(String id, String prod_id,String delete, DownlodableCallback<InsertProductModel> callback);
+
+
+
 }

@@ -37,6 +37,15 @@ class AddProductAcvtivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         retrofitDataProvider = RetrofitDataProvider(this)
 
+        if (intent.getStringExtra("operation").equals("update")){
+            productName.setText(intent.getStringExtra("name"))
+            productUnit.setText(intent.getStringExtra("unit"))
+            productActual_price.setText(intent.getStringExtra("actual_price"))
+            productSelling_price.setText(intent.getStringExtra("selling_price"))
+            productShortDescription.setText(intent.getStringExtra("short_description"))
+            productFullDescription.setText(intent.getStringExtra("full_description"))
+        }
+
         submit.setOnClickListener {
             validateAndInsert()
         }
@@ -84,7 +93,7 @@ class AddProductAcvtivity : AppCompatActivity() {
                 }
             })
             }else{
-                retrofitDataProvider!!.insertUpdate("", intent.getStringExtra("id"),
+                retrofitDataProvider!!.insertUpdate(intent.getStringExtra("id"), intent.getStringExtra("prod_id"),
                         productUnit.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
                         productFullDescription.text.toString(), formattedDate, intent.getStringExtra("operation") ,object : DownlodableCallback<InsertProductModel> {
                     override fun onSuccess(result: InsertProductModel) {
