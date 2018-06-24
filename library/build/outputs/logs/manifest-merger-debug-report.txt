@@ -1,0 +1,55 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+	package
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:11-49
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:1:1-19:12
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:2:5-63
+application
+ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:5:5-17:19
+provider#pl.aprilapps.easyphotopicker.ExtendedFileProvider
+ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:6:9-16:20
+	android:grantUriPermissions
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:10:13-47
+	android:authorities
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:8:13-80
+	android:exported
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:9:13-37
+	android:name
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:7:13-49
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:12:13-15:19
+	android:resource
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:14:17-50
+	android:name
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml:13:17-67
+uses-sdk
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		ADDED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml
+		INJECTED from D:\AllAndroidApp\All Clients work\Starbasket_Seller\library\src\main\AndroidManifest.xml

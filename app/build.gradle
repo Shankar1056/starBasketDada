@@ -62,12 +62,14 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:15.0.0'
     implementation 'com.firebaseui:firebase-ui-auth:3.2.2'
     compile 'com.google.android.gms:play-services-auth:15.0.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.tajchert:nammu:1.1.1'
     compile('com.crashlytics.sdk.android:crashlytics:2.9.2@aar') {
         transitive = true;
     }
 }
-repositories {
+/*repositories {
     mavenCentral()
     maven { url 'https://maven.fabric.io/public' }
-}
+}*/
 apply plugin: 'com.google.gms.google-services'

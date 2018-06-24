@@ -140,6 +140,12 @@
                 android:singleLine="true"
                 android:text=""></EditText>
         </android.support.design.widget.TextInputLayout>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@mipmap/picture"
+                app:layout_constraintTop_toBottomOf="@+id/full_description"/>
 
         <Button
             android:id="@+id/submit"
@@ -150,7 +156,7 @@
             android:drawableRight="@mipmap/ic_keyboard_arrow_right_white_24dp"
             android:text="Add"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@+id/full_description" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
 

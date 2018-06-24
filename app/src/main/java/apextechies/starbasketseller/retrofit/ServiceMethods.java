@@ -1,12 +1,16 @@
 package apextechies.starbasketseller.retrofit;
 
 
+import org.jetbrains.annotations.Nullable;
+
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 /**
  * Created by Shankar on 1/27/2018.
@@ -28,6 +32,7 @@ public interface ServiceMethods {
                       DownlodableCallback<InsertProductModel> callback);
 
     void deleteProduct(String id, String prod_id,String delete, DownlodableCallback<InsertProductModel> callback);
+    void uploadimage(@Nullable MultipartBody.Part body, @Nullable RequestBody name, DownlodableCallback<Void> callback);
 
 
 

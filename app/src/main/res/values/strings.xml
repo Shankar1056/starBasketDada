@@ -29,4 +29,5 @@
     <string name="businessname">Enter your business name</string>
     <string name="address">Enter your complete address</string>
     <string name="seller_dasboard">Seller Dashboard</string>
+    <string name="order_id">OrderId:</string>
 </resources>

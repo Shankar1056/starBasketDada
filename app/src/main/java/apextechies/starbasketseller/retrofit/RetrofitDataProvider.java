@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.concurrent.TimeUnit;
 
 import apextechies.starbasketseller.R;
@@ -15,12 +18,15 @@ import apextechies.starbasketseller.model.LoginModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Multipart;
 
 /**
  * Created by Shankar on 1/27/2018.
@@ -292,6 +298,33 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
                 }
         );
     }
+
+    @Override
+    public void uploadimage(@Nullable MultipartBody.Part body, @Nullable RequestBody name, final DownlodableCallback<Void> callback) {
+        createRetrofitService().uploadImage(body,name).enqueue(
+                new Callback<Void>() {
+                    @Override
+                    public void onResponse(@NonNull Call<Void> call, @NonNull final Response<Void> response) {
+                        if (response.isSuccessful()) {
+                            callback.onFailure("success");
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<Void> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+
 
 
 

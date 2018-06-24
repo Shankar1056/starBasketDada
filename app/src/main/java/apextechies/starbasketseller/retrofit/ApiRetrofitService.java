@@ -7,11 +7,15 @@ import apextechies.starbasketseller.model.LoginModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 /**
  * Created by Shankar on 1/27/2018.
@@ -65,5 +69,9 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.DELETEVARIENT)
     @FormUrlEncoded
     Call<InsertProductModel> deleteProduct(@Field("id") String seller_id, @Field("prod_id") String prod_id, @Field("all") String delete);
+
+    @POST(ApiUrl.UPLOADIMAGE)
+    @Multipart
+    Call<Void> uploadImage(@Part MultipartBody.Part image, @Part("img") RequestBody name);
 
 }
