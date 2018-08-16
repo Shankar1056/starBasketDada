@@ -60,6 +60,8 @@ class SignUpActivity : AppCompatActivity(){
                     if (result.status!!.contains(AppConstants.TRUE)) {
                         Utilz.closeDialog()
                         ClsGeneral.setPreferences(this@SignUpActivity, AppConstants.USERID, result.data!![0].id)
+                        ClsGeneral.setPreferences(this@SignUpActivity, AppConstants.USERNAME, result.data!![0].name)
+                        ClsGeneral.setPreferences(this@SignUpActivity, AppConstants.USEREMAIL, result.data!![0].email)
                         startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
                         finishAffinity()
                     }else{

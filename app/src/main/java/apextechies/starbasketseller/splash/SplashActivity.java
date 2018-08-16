@@ -140,6 +140,8 @@ public class SplashActivity extends AppCompatActivity {
 
                 if (result.getStatus().equals("true")){
                     ClsGeneral.setPreferences(SplashActivity.this, AppConstants.INSTANCE.getUSERID(), result.getData().get(0).getId());
+                    ClsGeneral.setPreferences(SplashActivity.this, AppConstants.INSTANCE.getUSERNAME(), result.getData().get(0).getName());
+                    ClsGeneral.setPreferences(SplashActivity.this, AppConstants.INSTANCE.getUSEREMAIL(), result.getData().get(0).getEmail());
                     if (!TextUtils.isEmpty(result.getData().get(0).getEmail())){
                         startActivity(new Intent(SplashActivity.this, MainActivity.class));
                         finish();

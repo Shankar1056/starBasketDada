@@ -9,4 +9,6 @@ object AppConstants {
     var POSITION = "Position"
     var TEACHER_DETAILS = "Teacher_Details"
     var USERID = "user_id"
+    var USERNAME = "user_name"
+    var USEREMAIL = "user_email"
 }
