@@ -30,11 +30,22 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/topToolbar">
 
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@mipmap/ic_launcher"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="15dp"/>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/ETName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/logo">
 
                 <EditText
                     android:id="@+id/Name"
@@ -44,6 +55,25 @@
                     android:fontFamily="@font/celias_medium"
                     android:hint="@string/name"
                     android:singleLine="true"
+                    android:text=""/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/ETmoile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ETName">
+
+                <EditText
+                    android:id="@+id/mobile"
+                    style="@style/ShankarEdittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/celias_medium"
+                    android:hint="@string/mobile"
+                    android:inputType="phone"
+                    android:singleLine="true"
                     android:text=""></EditText>
             </android.support.design.widget.TextInputLayout>
 
@@ -52,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/ETName">
+                app:layout_constraintTop_toBottomOf="@+id/ETmoile">
 
                 <EditText
                     android:id="@+id/email"
@@ -99,7 +129,61 @@
                     android:fontFamily="@font/celias_medium"
                     android:hint="@string/businessname"
                     android:singleLine="true"
-                    android:text=""></EditText>
+                    android:text=""/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/ETpincoe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ETaddress">
+
+                <EditText
+                    android:id="@+id/pincode"
+                    style="@style/ShankarEdittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/celias_medium"
+                    android:hint="@string/pincode"
+                    android:singleLine="true"
+                    android:text=""/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/ETpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ETpincoe">
+
+                <EditText
+                    android:id="@+id/password"
+                    style="@style/ShankarEdittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/celias_medium"
+                    android:hint="@string/password"
+                    android:singleLine="true"
+                    android:inputType="textPassword"
+                    android:text=""/>
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/ETconfrpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/ETpassword">
+
+                <EditText
+                    android:id="@+id/conimPassword"
+                    style="@style/ShankarEdittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/celias_medium"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:text=""/>
             </android.support.design.widget.TextInputLayout>
 
 
@@ -114,7 +198,7 @@
                 android:drawableRight="@mipmap/ic_keyboard_arrow_right_white_24dp"
                 android:text="Register"
                 android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@+id/ETaddress" />
+                app:layout_constraintTop_toBottomOf="@+id/ETconfrpassword" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
 

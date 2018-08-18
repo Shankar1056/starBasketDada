@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.content_main.view.*
 import kotlinx.android.synthetic.main.nav_header_main.*
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -38,8 +39,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-        name.setText(ClsGeneral.getStrPreferences(this, AppConstants.USERNAME))
-        email.setText(ClsGeneral.getStrPreferences(this, AppConstants.USEREMAIL))
+       var v= nav_view.getHeaderView(0)
+        v.name.text = (ClsGeneral.getStrPreferences(this, AppConstants.USERNAME))
+        v.email.text = (ClsGeneral.getStrPreferences(this, AppConstants.USEREMAIL))
         categoryET.setOnClickListener {
             movetoListingPage(1, cat_id)
         }

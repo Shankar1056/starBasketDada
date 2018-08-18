@@ -42,7 +42,7 @@
             android:label="@string/register">
 
         </activity>
-        <activity android:name=".splash.SplashActivity"
+        <activity android:name=".splash.Splash"
             android:theme="@style/MyThemeFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,6 +54,8 @@
         <activity android:name=".activity.ProductListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.ProductVarientDeleteAcvtivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".splash.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data

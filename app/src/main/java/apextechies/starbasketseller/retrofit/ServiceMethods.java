@@ -25,7 +25,8 @@ public interface ServiceMethods {
                        DownlodableCallback<InsertProductModel> callback);
 
     void login(String phone, DownlodableCallback<LoginModel> callback);
-    void signup(String name, String email, String password, String phone, String business_name, String address,String created_date, DownlodableCallback<LoginModel> callback);
+    void signup(String name, String email, String phone, String business_name, String address,String pincode,String password,String created_date, DownlodableCallback<LoginModel> callback);
+    void login(String email,String password,String created_date, DownlodableCallback<LoginModel> callback);
     void productList(String seller_id, DownlodableCallback<ProductListModel> callback);
     void insertUpdate(String id, String prod_id, String unit, String actual_price, String selling_price,
                       String discount, String short_description, String full_description, String created_date, String insertupdate,

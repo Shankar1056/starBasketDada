@@ -23,11 +23,16 @@
     <string name="product_full_description">Enter full description</string>
     <string name="add_product">Add Product</string>
     <string name="register">SignUp</string>
-    <string name="name">Enter your name</string>
+    <string name="name">Enter full name</string>
     <string name="emailadress">Enter your email</string>
     <string name="mobile">Enter 10 digit mobile number</string>
     <string name="businessname">Enter your business name</string>
     <string name="address">Enter your complete address</string>
     <string name="seller_dasboard">Seller Dashboard</string>
     <string name="order_id">OrderId:</string>
+    <string name="pincode">Pincode</string>
+    <string name="password">Create Password</string>
+    <string name="interotext">Join with usand sellyour own producs on Bnkura\'s largestmobile commerce plateform!</string>
+    <string name="newseller">New Seller</string>
+    <string name="registered_seller">Registered Seller</string>
 </resources>

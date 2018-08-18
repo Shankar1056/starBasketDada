@@ -53,9 +53,13 @@ class SignUpActivity : AppCompatActivity(){
         else if (!Utilz.isValidEmail1(email.text.toString())) Utilz.showToast(this, "Enter valid email")
         else if (business_name.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your phone")
         else if (address.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your phone")
+        else if (pincode.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your pincode")
+        else if (password.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your password")
+        else if (conimPassword.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your conimPassword")
+        else if (!password.text.toString().trim().equals(conimPassword.text.toString().trim())) Utilz.showToast(this, "passwor & conimPassword are not same")
         else{
             Utilz.showDailog(this, resources.getString(R.string.pleaee_wait))
-            retrofitDataProvider!!.signup(Name.text.toString(), email.text.toString(), "", intent.getStringExtra("mobile"), business_name.text.toString(),  address.text.toString(), formattedDate, object : DownlodableCallback<LoginModel> {
+            retrofitDataProvider!!.signup(Name.text.toString(), email.text.toString(), intent.getStringExtra("mobile"), business_name.text.toString(),  address.text.toString(),pincode.text.toString(),password.text.toString(), formattedDate, object : DownlodableCallback<LoginModel> {
                 override fun onSuccess(result: LoginModel) {
                     if (result.status!!.contains(AppConstants.TRUE)) {
                         Utilz.closeDialog()
