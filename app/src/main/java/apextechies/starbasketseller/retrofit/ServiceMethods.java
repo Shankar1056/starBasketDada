@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
+import apextechies.starbasketseller.model.OrderHistoryModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
@@ -34,6 +35,7 @@ public interface ServiceMethods {
 
     void deleteProduct(String id, String prod_id,String delete, DownlodableCallback<InsertProductModel> callback);
     void uploadimage(@Nullable MultipartBody.Part body, @Nullable RequestBody name, DownlodableCallback<Void> callback);
+    void getSellerOrerList(String seller_id, DownlodableCallback<OrderHistoryModel> callback);
 
 
 

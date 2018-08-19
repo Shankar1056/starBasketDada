@@ -4,6 +4,7 @@ package apextechies.starbasketseller.retrofit;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
+import apextechies.starbasketseller.model.OrderHistoryModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
 import apextechies.starbasketseller.model.SubSubCategoryModel;
@@ -73,6 +74,10 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.DELETEVARIENT)
     @FormUrlEncoded
     Call<InsertProductModel> deleteProduct(@Field("id") String seller_id, @Field("prod_id") String prod_id, @Field("all") String delete);
+
+    @POST(ApiUrl.ORDERHISTORY)
+    @FormUrlEncoded
+    Call<OrderHistoryModel> getOrderHitory(@Field("seller_id") String seller_id);
 
     @POST(ApiUrl.UPLOADIMAGE)
     @Multipart

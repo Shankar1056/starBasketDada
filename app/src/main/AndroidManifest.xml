@@ -57,6 +57,10 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".splash.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.OrderHistory"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.PreAddCategoryctivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
             xmlns:tools="http://schemas.android.com/tools"

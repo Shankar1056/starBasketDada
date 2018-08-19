@@ -1,94 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
-
-   <TextView
-       android:id="@+id/categoryET"
-       style="@style/ShankarEdittext"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginLeft="3dp">
+   <android.support.v7.widget.CardView
+       android:id="@+id/newrderCV"
+       xmlns:card_view="http://schemas.android.com/apk/res-auto"
        android:layout_width="match_parent"
-       android:layout_height="@dimen/large"
-       android:layout_marginTop="8dp"
-       android:background="@drawable/draw_border_grey"
-       android:fontFamily="@font/celias_medium"
-       android:hint="@string/hint_category"
-       app:layout_constraintEnd_toEndOf="@+id/subCatTB"
-       app:layout_constraintTop_toTopOf="parent" />
-
-   <TextView
-       android:id="@+id/subcatText"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toBottomOf="@+id/categoryET"
-       android:layout_marginTop="20dp"
-       android:paddingLeft="10dp"
-       android:alpha="0.9"
-       android:gravity="center_vertical"
-       android:fontFamily="@font/celias_bold"
-       android:text="@string/have_subcat"/>
-
-   <Switch
-       android:id="@+id/subCatTB"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toTopOf="@+id/subcatText"
-       android:layout_marginRight="15dp"
-       android:checked="true"
-       app:layout_constraintRight_toRightOf="parent"/>
-
-   <TextView
-       android:id="@+id/subcategoryET"
+       android:layout_height="match_parent"
+       card_view:cardElevation="3dp"
+       card_view:cardCornerRadius="4dp"
+       card_view:cardUseCompatPadding="true"
+       android:layout_weight=".5">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:text="@string/new_order"
+          android:textSize="20sp"
+          android:fontFamily="@font/celias_medium"/>
+   </android.support.v7.widget.CardView>
+   <android.support.v7.widget.CardView
+       android:id="@+id/addproduct"
+       xmlns:card_view="http://schemas.android.com/apk/res-auto"
        android:layout_width="match_parent"
-       android:layout_height="@dimen/large"
-       android:hint="@string/hint_subcategory"
-       android:fontFamily="@font/celias_medium"
-       android:background="@drawable/draw_border_grey"
-       style="@style/ShankarEdittext"
-       app:layout_constraintTop_toBottomOf="@+id/subcatText"/>
-
-   <TextView
-       android:id="@+id/subsubcatText"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toBottomOf="@+id/subcategoryET"
-       android:layout_marginTop="20dp"
-       android:paddingLeft="10dp"
-       android:gravity="center_vertical"
-       android:fontFamily="@font/celias_bold"
-       android:text="@string/have_subsubcat"/>
-
-   <Switch
-       android:id="@+id/subsubCatTB"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toTopOf="@+id/subsubcatText"
-       android:layout_marginRight="15dp"
-       android:checked="true"
-       app:layout_constraintRight_toRightOf="parent"/>
-
-
-   <TextView
-       android:id="@+id/subsubcategoryET"
+       android:layout_height="match_parent"
+       card_view:cardElevation="3dp"
+       card_view:cardCornerRadius="4dp"
+       card_view:cardUseCompatPadding="true"
+       android:layout_weight=".5">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:text="@string/new_addproduct"
+          android:textSize="20sp"
+          android:fontFamily="@font/celias_medium"/>
+   </android.support.v7.widget.CardView>
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="3dp"
+    android:layout_marginLeft="3dp">
+   <android.support.v7.widget.CardView
+       xmlns:card_view="http://schemas.android.com/apk/res-auto"
        android:layout_width="match_parent"
-       android:layout_height="@dimen/large"
-       android:hint="@string/hint_subsubcategory"
-       android:fontFamily="@font/celias_medium"
-       android:background="@drawable/draw_border_grey"
-       style="@style/ShankarEdittext"
-       app:layout_constraintTop_toBottomOf="@+id/subsubcatText"/>
-
-   <Button
-       android:id="@+id/addButton"
+       android:layout_height="match_parent"
+       card_view:cardElevation="3dp"
+       card_view:cardCornerRadius="4dp"
+       card_view:cardUseCompatPadding="true"
+       android:layout_weight=".5">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:text="@string/new_viewedit"
+          android:textSize="20sp"
+          android:fontFamily="@font/celias_medium"/>
+   </android.support.v7.widget.CardView>
+   <android.support.v7.widget.CardView
+       android:id="@+id/completedorder"
+       xmlns:card_view="http://schemas.android.com/apk/res-auto"
        android:layout_width="match_parent"
-       android:layout_height="@dimen/large"
-       android:layout_margin="25dp"
-       android:text="Add Product"
-       android:background="@color/maroon"
-       android:textColor="@color/white"
-       app:layout_constraintTop_toBottomOf="@+id/subsubcategoryET"/>
-</android.support.constraint.ConstraintLayout>
+       android:layout_height="match_parent"
+       card_view:cardElevation="3dp"
+       card_view:cardCornerRadius="4dp"
+       card_view:cardUseCompatPadding="true"
+       android:layout_weight=".5">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:text="@string/new_comletedorder"
+          android:textSize="20sp"
+          android:fontFamily="@font/celias_medium"/>
+   </android.support.v7.widget.CardView>
+</LinearLayout>
+
+   <android.support.v7.widget.CardView
+       xmlns:card_view="http://schemas.android.com/apk/res-auto"
+       android:layout_width="match_parent"
+       android:layout_height="150dp"
+       card_view:cardElevation="3dp"
+       card_view:cardCornerRadius="4dp"
+       card_view:cardUseCompatPadding="true">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:gravity="center"
+          android:text="@string/paymet"
+          android:textSize="20sp"
+          android:fontFamily="@font/celias_medium"/>
+   </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

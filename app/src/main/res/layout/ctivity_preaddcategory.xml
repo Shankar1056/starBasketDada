@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/categoryET"
+        style="@style/ShankarEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/large"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/draw_border_grey"
+        android:fontFamily="@font/celias_medium"
+        android:hint="@string/hint_category"
+        app:layout_constraintEnd_toEndOf="@+id/subCatTB"
+        app:layout_constraintTop_toBottomOf="@+id/appbar" />
+
+    <TextView
+        android:id="@+id/subcatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/categoryET"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:alpha="0.9"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/celias_bold"
+        android:text="@string/have_subcat"/>
+
+    <Switch
+        android:id="@+id/subCatTB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/subcatText"
+        android:layout_marginRight="15dp"
+        android:checked="true"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/subcategoryET"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/large"
+        android:hint="@string/hint_subcategory"
+        android:fontFamily="@font/celias_medium"
+        android:background="@drawable/draw_border_grey"
+        style="@style/ShankarEdittext"
+        app:layout_constraintTop_toBottomOf="@+id/subcatText"/>
+
+    <TextView
+        android:id="@+id/subsubcatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/subcategoryET"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:fontFamily="@font/celias_bold"
+        android:text="@string/have_subsubcat"/>
+
+    <Switch
+        android:id="@+id/subsubCatTB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/subsubcatText"
+        android:layout_marginRight="15dp"
+        android:checked="true"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/subsubcategoryET"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/large"
+        android:hint="@string/hint_subsubcategory"
+        android:fontFamily="@font/celias_medium"
+        android:background="@drawable/draw_border_grey"
+        style="@style/ShankarEdittext"
+        app:layout_constraintTop_toBottomOf="@+id/subsubcatText"/>
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/large"
+        android:layout_margin="25dp"
+        android:text="Add Product"
+        android:background="@color/maroon"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/subsubcategoryET"/>
+
+</android.support.constraint.ConstraintLayout>

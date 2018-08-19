@@ -7,6 +7,6 @@ import apextechies.starbasketseller.R
 class OrderList: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_orderlist)
+        setContentView(R.layout.activity_productlist)
     }
 }
