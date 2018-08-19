@@ -46,6 +46,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(Intent(this@MainActivity,OrderHistory::class.java)
                     .putExtra("name", "Completed Order"))
         }
+        vieweitCV.setOnClickListener {
+            startActivity(Intent(this@MainActivity,OrderHistory::class.java)
+                    .putExtra("name", "View Edit"))
+        }
 
     }
 

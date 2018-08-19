@@ -42,6 +42,10 @@ class OrderHistoryAdapter(private val context: Context, private var catName: Arr
         holder.tvProductName.setText("Product Name: "+catName[position].product_name)
         holder.tvUnitCount.setText("Status: "+catName[position].order_status)
         }
+        else if (name.equals("View Edit")){
+        holder.tvProductName.setText("Product Name: "+catName[position].product_name)
+        holder.tvUnitCount.setText("Status: "+catName[position].order_status)
+        }
 
     }
 
