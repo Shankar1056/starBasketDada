@@ -9,4 +9,6 @@ class CategoryDateModel {
     var name: String? = null
     @SerializedName("icon")
     var icon: String? = null
+    @SerializedName("status")
+    var status: String? = null
 }

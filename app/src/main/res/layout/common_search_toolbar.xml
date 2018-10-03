@@ -33,6 +33,8 @@
             android:drawablePadding="@dimen/text_very_small"
             android:hint="@string/app_name"
             android:text=""
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
             app:layout_constraintTop_toBottomOf="@+id/appbar"
             android:textColor="@color/grey_600"
             android:paddingLeft="@dimen/text_very_small"/>

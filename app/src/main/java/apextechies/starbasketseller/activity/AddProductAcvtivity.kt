@@ -63,6 +63,8 @@ class AddProductAcvtivity : AppCompatActivity() {
         retrofitDataProvider = RetrofitDataProvider(this)
 
         if (intent.getStringExtra("operation").equals("update")) {
+            productName.isClickable = false
+            productName.isFocusable = false
             productName.setText(intent.getStringExtra("name"))
             productUnit.setText(intent.getStringExtra("unit"))
             productActual_price.setText(intent.getStringExtra("actual_price"))
@@ -75,25 +77,8 @@ class AddProductAcvtivity : AppCompatActivity() {
 
 
         submit.setOnClickListener {
-//            validateAndInsert()
-            var reqFile = RequestBody.create(MediaType.parse("image/*"), photos[0].path);
-            var body = MultipartBody.Part.createFormData("img", "images", reqFile);
-            var name = RequestBody.create(MediaType.parse("text/plain"), "upload_test");
+            validateAndInsert()
 
-
-            retrofitDataProvider!!.uploadimage(body, name, object : DownlodableCallback<Void> {
-                override fun onSuccess(result: Void?) {
-
-
-                }
-
-                override fun onFailure(error: String?) {
-                }
-
-                override fun onUnauthorized(errorNumber: Int) {
-                }
-
-            })
         }
 
         toolbar.setNavigationOnClickListener {

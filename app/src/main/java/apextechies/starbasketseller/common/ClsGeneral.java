@@ -4,6 +4,8 @@ package apextechies.starbasketseller.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Locale;
+
 
 public class ClsGeneral {
     public static void setPreferences(Context context , String key, String value) {
@@ -44,6 +46,5 @@ public class ClsGeneral {
                 Context.MODE_PRIVATE);
         return prefs.getInt(key, 0);
     }
-
 
 }

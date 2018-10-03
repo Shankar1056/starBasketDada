@@ -69,7 +69,7 @@ public class Utilz {
 
     public static void closeDialog() {
         if (dialog != null)
-            dialog.cancel();
+            dialog.dismiss();
     }
 
     public static void showToast(Context context, String message){

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import apextechies.starbasketseller.R
+import apextechies.starbasketseller.activity.CustomDialogClass
 import apextechies.starbasketseller.activity.MainActivity
 import apextechies.starbasketseller.common.AppConstants
 import apextechies.starbasketseller.common.ClsGeneral
@@ -36,15 +37,23 @@ class LoginActivity: AppCompatActivity() {
                 Utilz.showDailog(this, resources.getString(R.string.pleaee_wait))
                 retrofitDataProvider!!.login(email.text.toString(), password.text.toString(), formattedDate, object : DownlodableCallback<LoginModel> {
                     override fun onSuccess(result: LoginModel) {
+                        Utilz.closeDialog()
                         if (result.status!!.contains(AppConstants.TRUE)) {
-                            Utilz.closeDialog()
-                            ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERID, result.data!![0].id)
-                            ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERNAME, result.data!![0].name)
-                            ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USEREMAIL, result.data!![0].email)
-                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                            finishAffinity()
+                           if(result.data!![0].status.equals("1")){
+                               ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERID, result.data!![0].id)
+                               ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERNAME, result.data!![0].name)
+                               ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USEREMAIL, result.data!![0].email)
+                               startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                               finishAffinity()
+                           }
+                            else{
+                               val cdd = CustomDialogClass(this@LoginActivity)
+                               cdd.show()
+                           }
+
                         }else{
                             Toast.makeText(this@LoginActivity, "" + result.msg, Toast.LENGTH_SHORT).show()
+                            Utilz.closeDialog()
                         }
                     }
                     override fun onFailure(error: String) {
@@ -60,6 +69,9 @@ class LoginActivity: AppCompatActivity() {
             }
         }
 
+        signup.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
+        }
 
     }
 }

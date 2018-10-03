@@ -6,20 +6,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_productList"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@mipmap/products"
             android:title="Product List" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:id="@+id/nav_account"
+            android:icon="@mipmap/account"
             android:title="My Account" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:id="@+id/nav_ordermanagment"
+            android:icon="@mipmap/management"
             android:title="Order Management" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:id="@+id/nav_paymentcollection"
+            android:icon="@mipmap/collection"
             android:title="Payment Collection" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@mipmap/logout"
+            android:title="LogOut" />
     </group>
 
    <!-- <item android:title="Communicate">

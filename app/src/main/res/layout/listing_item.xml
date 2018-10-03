@@ -9,7 +9,7 @@
     android:layout_height="@dimen/large"
     android:gravity="center_vertical"
     android:fontFamily="@font/celias_medium"
-    android:text="fjnwe jfnljweb fij"
+    android:text=""
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"/>
     <View

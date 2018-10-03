@@ -19,12 +19,19 @@ import apextechies.starbasketseller.retrofit.RetrofitDataProvider
 import kotlinx.android.synthetic.main.activity_listing.*
 import kotlinx.android.synthetic.main.common_search_toolbar.*
 import android.content.Intent
+import android.text.Editable
+import android.text.TextWatcher
 import apextechies.starbasketseller.common.Utilz
+import apextechies.starbasketseller.model.CategoryDateModel
+import java.util.*
 
 
 class ListingActivity : AppCompatActivity() {
     private var retrofitDataProvider: RetrofitDataProvider? = null
     var pos: Int = 0
+    var adapter: CatListingAdapter?= null
+    var subadapter: SubCatListingAdapter?= null
+    var subsubadapter: SubSubCatListingAdapter?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,20 +62,49 @@ class ListingActivity : AppCompatActivity() {
             setResult(2, intent)
             finish()
         }
+
+        searchET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                val text = searchET.getText().toString().toLowerCase(Locale.getDefault())
+                if (pos == 1) adapter!!.filter(text)
+                if (pos == 2) subadapter!!.filter(text)
+                if (pos == 3) subsubadapter!!.filter(text)
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+        })
     }
 
     private fun getProductCategory() {
+        var list = ArrayList<CategoryDateModel>()
         Utilz.showDailog(this, resources.getString(R.string.pleaee_wait))
         retrofitDataProvider!!.category(object : DownlodableCallback<CategoryModel> {
             override fun onSuccess(result: CategoryModel) {
                 if (result.status!!.contains(AppConstants.TRUE)) {
                     Utilz.closeDialog()
-                    commonRV.adapter = CatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
+                    for (i in 0 until result.data!!.size){
+
+                        if (result.data!![i].status.equals("1")){
+                            list.add(result.data!![i])
+                        }
+                    }
+                    adapter = CatListingAdapter(this@ListingActivity, list, R.layout.listing_item, object : OnItemClickListener{
                         override fun onClick(pos: Int, text: String) {
-                            sendDataBack(result.data!![pos].id, result.data!![pos].name)
+                            for(i in 0 until result.data!!.size){
+                                if (result.data!![i].name.equals(text)){
+                                    sendDataBack(result.data!![i].id, result.data!![i].name)
+                                }
+                            }
+
                         }
 
                     })
+                    commonRV.adapter = adapter
                 }else{
                     Toast.makeText(this@ListingActivity, "" + result.msg, Toast.LENGTH_SHORT).show()
                 }
@@ -92,12 +128,18 @@ class ListingActivity : AppCompatActivity() {
             override fun onSuccess(result: SubCategoryModel) {
                 Utilz.closeDialog()
                 if (result.status!!.contains(AppConstants.TRUE)) {
-                    commonRV.adapter = SubCatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
+                    subadapter = SubCatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
                         override fun onClick(pos: Int, text: String) {
-                            sendDataBack(result.data!![pos].id, result.data!![pos].name)
+                            for(i in 0 until result.data!!.size){
+                                if (result.data!![i].name.equals(text)){
+                                    sendDataBack(result.data!![i].id, result.data!![i].name)
+                                }
+                            }
+
                         }
 
                     })
+                    commonRV.adapter = subadapter
                 }else{
                     Toast.makeText(this@ListingActivity, "" + result.msg, Toast.LENGTH_SHORT).show()
                 }
@@ -119,12 +161,17 @@ class ListingActivity : AppCompatActivity() {
             override fun onSuccess(result: SubSubCategoryModel) {
                 Utilz.closeDialog()
                 if (result.status!!.contains(AppConstants.TRUE)) {
-                    commonRV.adapter = SubSubCatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
+                    subsubadapter = SubSubCatListingAdapter(this@ListingActivity, result.data!!, R.layout.listing_item, object : OnItemClickListener{
                         override fun onClick(pos: Int, text: String) {
-                            sendDataBack(result.data!![pos].id, result.data!![pos].name)
+                            for(i in 0 until result.data!!.size){
+                                if (result.data!![i].name.equals(text)){
+                                    sendDataBack(result.data!![i].id, result.data!![i].name)
+                                }
+                            }
                         }
 
                     })
+                    commonRV.adapter = subsubadapter
                 }else{
                     Toast.makeText(this@ListingActivity, "" + result.msg, Toast.LENGTH_SHORT).show()
                 }

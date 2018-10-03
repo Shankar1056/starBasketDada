@@ -28,11 +28,11 @@
     <string name="mobile">Enter 10 digit mobile number</string>
     <string name="businessname">Enter your business name</string>
     <string name="address">Enter your complete address</string>
-    <string name="seller_dasboard">Seller Dashboard</string>
+    <string name="seller_dasboard">Your Dashboard</string>
     <string name="order_id">OrderId:</string>
     <string name="pincode">Pincode</string>
     <string name="password">Create Password</string>
-    <string name="interotext">Join with usand sellyour own producs on Bnkura\'s largestmobile commerce plateform!</string>
+    <string name="interotext">Join with us and sell your own products on Bankura\'s largest mobile e-commerce plateform!</string>
     <string name="newseller">New Seller</string>
     <string name="registered_seller">Registered Seller</string>
     <string name="new_order">New Order</string>
@@ -40,4 +40,7 @@
     <string name="new_viewedit">View/Edit Product</string>
     <string name="new_comletedorder">Completed Order</string>
     <string name="paymet">Payment</string>
+    <string name="confirmpasswor">Comfirm Password</string>
+    <string name="forgtpasword">Forgot Password?</string>
+    <string name="add_varient">Add Varient</string>
 </resources>

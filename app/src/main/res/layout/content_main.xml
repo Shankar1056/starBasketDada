@@ -25,10 +25,13 @@
        card_view:cardUseCompatPadding="true"
        android:layout_weight=".5">
       <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:gravity="center"
+          android:layout_gravity="center"
+          android:drawablePadding="10dp"
           android:text="@string/new_order"
+          android:drawableTop="@mipmap/new_order"
           android:textSize="20sp"
           android:fontFamily="@font/celias_medium"/>
    </android.support.v7.widget.CardView>
@@ -42,11 +45,14 @@
        card_view:cardUseCompatPadding="true"
        android:layout_weight=".5">
       <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:gravity="center"
+          android:layout_gravity="center"
           android:text="@string/new_addproduct"
+          android:drawableTop="@mipmap/add_product"
           android:textSize="20sp"
+          android:drawablePadding="10dp"
           android:fontFamily="@font/celias_medium"/>
    </android.support.v7.widget.CardView>
 </LinearLayout>
@@ -67,11 +73,14 @@
        card_view:cardUseCompatPadding="true"
        android:layout_weight=".5">
       <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:gravity="center"
           android:text="@string/new_viewedit"
           android:textSize="20sp"
+          android:drawableTop="@mipmap/edit_product"
+          android:layout_gravity="center"
+          android:drawablePadding="10dp"
           android:fontFamily="@font/celias_medium"/>
    </android.support.v7.widget.CardView>
    <android.support.v7.widget.CardView
@@ -84,11 +93,14 @@
        card_view:cardUseCompatPadding="true"
        android:layout_weight=".5">
       <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:gravity="center"
           android:text="@string/new_comletedorder"
           android:textSize="20sp"
+          android:drawableTop="@mipmap/completed_order"
+          android:layout_gravity="center"
+          android:drawablePadding="10dp"
           android:fontFamily="@font/celias_medium"/>
    </android.support.v7.widget.CardView>
 </LinearLayout>
@@ -101,9 +113,12 @@
        card_view:cardCornerRadius="4dp"
        card_view:cardUseCompatPadding="true">
       <TextView
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:gravity="center"
+          android:drawableTop="@mipmap/payment"
+          android:drawablePadding="10dp"
+          android:layout_gravity="center"
           android:text="@string/paymet"
           android:textSize="20sp"
           android:fontFamily="@font/celias_medium"/>

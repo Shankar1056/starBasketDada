@@ -10,6 +10,9 @@ import android.view.MenuItem
 import apextechies.starbasketseller.R
 import apextechies.starbasketseller.common.AppConstants
 import apextechies.starbasketseller.common.ClsGeneral
+import apextechies.starbasketseller.splash.Splash
+import apextechies.starbasketseller.splash.SplashActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -70,17 +73,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         if (id == R.id.nav_productList) {
             startActivity(Intent(this, ProductListActivity::class.java))
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_account) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_ordermanagment) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_paymentcollection) {
 
-        }/* else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_logout) {
 
-        } else if (id == R.id.nav_send) {
-
-        }*/
+            ClsGeneral.setPreferences(this, AppConstants.USERID, "")
+//            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, Splash::class.java))
+            finish()
+        }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true

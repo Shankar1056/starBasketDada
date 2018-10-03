@@ -77,7 +77,6 @@ public class SplashActivity extends AppCompatActivity {
     private void checkSession() {
         AuthMigrator.getInstance().migrate(true).addOnSuccessListener(this,
                 new OnSuccessListener() {
-
                     @Override
                     public void onSuccess(Object o) {
                         FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();

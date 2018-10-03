@@ -9,9 +9,12 @@ import android.widget.TextView
 import apextechies.starbasketseller.R
 import apextechies.starbasketseller.allinterface.OnItemClickListener
 import apextechies.starbasketseller.model.CategoryDateModel
+import apextechies.starbasketseller.model.SubCategoryDateModel
 import apextechies.starbasketseller.model.SubSubCategoryDateModel
+import java.util.*
 
 class SubSubCatListingAdapter (private val context: Context, private var catName: ArrayList<SubSubCategoryDateModel>, private val categorylist_row: Int, private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<SubSubCatListingAdapter.MyViewHolder>() {
+    var list = java.util.ArrayList<SubSubCategoryDateModel>()
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         internal var namrTV: TextView
 
@@ -23,7 +26,8 @@ class SubSubCatListingAdapter (private val context: Context, private var catName
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context)
                 .inflate(categorylist_row, parent, false)
-
+        list = ArrayList<SubSubCategoryDateModel>()
+        list.addAll(catName)
         return MyViewHolder(itemView)
     }
 
@@ -33,12 +37,29 @@ class SubSubCatListingAdapter (private val context: Context, private var catName
 
 
         holder.itemView.setOnClickListener {
-            onItemClickListener.onClick(position,"")
+            onItemClickListener.onClick(position, catName[position].name!!)
         }
 
     }
 
     override fun getItemCount(): Int {
         return catName.size
+    }
+
+    fun filter(text: String) {
+
+        var charText = text.toLowerCase(Locale.getDefault())
+        catName.clear()
+        if (charText.length == 0) {
+            catName.addAll(list);
+        } else {
+            for(wp in list){
+                if (wp!!.name!!.toLowerCase(Locale.getDefault())
+                                .contains(charText)) {
+                    catName.add(wp)
+                }
+            }
+        }
+        notifyDataSetChanged()
     }
 }
