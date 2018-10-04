@@ -76,7 +76,7 @@ class SignUpActivity : AppCompatActivity(){
                             finishAffinity()
                         }
                         else{
-                            val cdd = CustomDialogClass(this@SignUpActivity)
+                            val cdd = CustomDialogClass(this@SignUpActivity, "signup")
                             cdd.show()
                         }
 

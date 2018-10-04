@@ -147,6 +147,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/celias_medium"
                     android:hint="@string/pincode"
+                    android:inputType="number"
                     android:singleLine="true"
                     android:text=""/>
             </android.support.design.widget.TextInputLayout>

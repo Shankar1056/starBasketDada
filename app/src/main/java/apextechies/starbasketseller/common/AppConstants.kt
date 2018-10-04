@@ -11,4 +11,5 @@ object AppConstants {
     var USERID = "user_id"
     var USERNAME = "user_name"
     var USEREMAIL = "user_email"
+    var BUSINESSNAME = "business_name"
 }

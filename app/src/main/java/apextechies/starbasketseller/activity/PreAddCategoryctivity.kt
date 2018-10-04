@@ -8,6 +8,8 @@ import android.view.MenuItem
 import android.widget.CompoundButton
 import android.widget.Toast
 import apextechies.starbasketseller.R
+import apextechies.starbasketseller.common.AppConstants
+import apextechies.starbasketseller.common.ClsGeneral
 import kotlinx.android.synthetic.main.ctivity_preaddcategory.*
 
 class PreAddCategoryctivity: AppCompatActivity() {
@@ -18,6 +20,9 @@ class PreAddCategoryctivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ctivity_preaddcategory)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = ClsGeneral.getStrPreferences(this, AppConstants.BUSINESSNAME)
 
         categoryET.setOnClickListener {
             movetoListingPage(1, cat_id)
@@ -79,6 +84,10 @@ class PreAddCategoryctivity: AppCompatActivity() {
                     .putExtra("sub_sub_cat_id", subSubcat_id)
                     .putExtra("operation", "newinsert")
             )
+        }
+
+        toolbar.setNavigationOnClickListener {
+            finish()
         }
 
     }

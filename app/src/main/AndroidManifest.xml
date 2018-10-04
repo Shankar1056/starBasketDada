@@ -34,7 +34,7 @@
         </activity>
         <activity android:name=".activity.AddProductAcvtivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/add_varient">
+            android:label="@string/add_product">
 
         </activity>
         <activity android:name=".splash.SignUpActivity"

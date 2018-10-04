@@ -63,14 +63,21 @@ class AddProductAcvtivity : AppCompatActivity() {
         retrofitDataProvider = RetrofitDataProvider(this)
 
         if (intent.getStringExtra("operation").equals("update")) {
+            supportActionBar!!.title = "Update Varient"
             productName.isClickable = false
             productName.isFocusable = false
             productName.setText(intent.getStringExtra("name"))
             productUnit.setText(intent.getStringExtra("unit"))
+            productQuantity.setText(intent.getStringExtra("productQuantity"))
             productActual_price.setText(intent.getStringExtra("actual_price"))
             productSelling_price.setText(intent.getStringExtra("selling_price"))
             productShortDescription.setText(intent.getStringExtra("short_description"))
             productFullDescription.setText(intent.getStringExtra("full_description"))
+        }else if(intent.getStringExtra("operation").equals("insert")){
+            supportActionBar!!.title = "Add Varient"
+            productName.isFocusable = false
+            productName.isClickable = false
+            productName.setText(intent.getStringExtra("name"))
         }
 
 
@@ -173,7 +180,8 @@ class AddProductAcvtivity : AppCompatActivity() {
         val formattedDate = df.format(c)
 
         if (TextUtils.isEmpty(productName.text.toString().trim())) Utilz.showToast(this, "Enter your product name")
-        else if (TextUtils.isEmpty(productUnit.text.toString().trim())) Utilz.showToast(this, "Enter quantity")
+        else if (TextUtils.isEmpty(productUnit.text.toString().trim())) Utilz.showToast(this, "Enter varient")
+        else if (TextUtils.isEmpty(productQuantity.text.toString().trim())) Utilz.showToast(this, "Enter Quantity")
         else if (TextUtils.isEmpty(productActual_price.text.toString().trim())) Utilz.showToast(this, "Enter product actual price")
         else if (TextUtils.isEmpty(productSelling_price.text.toString().trim())) Utilz.showToast(this, "Enter product selling price")
         else if (TextUtils.isEmpty(productShortDescription.text.toString().trim())) Utilz.showToast(this, "Enter product short description")
@@ -183,7 +191,7 @@ class AddProductAcvtivity : AppCompatActivity() {
             if (intent.getStringExtra("operation").equals("newinsert")) {
 
                 retrofitDataProvider!!.insertProduct(intent.getStringExtra("sub_cat_id"), intent.getStringExtra("sub_sub_cat_id"),
-                        productName.text.toString(), productUnit.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
+                        productName.text.toString(), productUnit.text.toString(),productQuantity.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
                         productFullDescription.text.toString(), ClsGeneral.getStrPreferences(this, AppConstants.USERID), formattedDate, object : DownlodableCallback<InsertProductModel> {
                     override fun onSuccess(result: InsertProductModel) {
                         if (result.status!!.contains(AppConstants.TRUE)) {
@@ -207,7 +215,7 @@ class AddProductAcvtivity : AppCompatActivity() {
                 })
             } else {
                 retrofitDataProvider!!.insertUpdate(intent.getStringExtra("id"), intent.getStringExtra("prod_id"),
-                        productUnit.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
+                        productUnit.text.toString(), productQuantity.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
                         productFullDescription.text.toString(), formattedDate, intent.getStringExtra("operation"), object : DownlodableCallback<InsertProductModel> {
                     override fun onSuccess(result: InsertProductModel) {
                         if (result.status!!.contains(AppConstants.TRUE)) {

@@ -18,6 +18,7 @@
     <string name="product_name">Enter product name</string>
     <string name="product_actualprice">Enter actual price</string>
     <string name="product_unit">Enter no. of quantity</string>
+    <string name="product_varient">Enter varient</string>
     <string name="product_sellingprice">Enter selling price</string>
     <string name="product_short_description">Type sort description</string>
     <string name="product_full_description">Enter full description</string>
@@ -43,4 +44,6 @@
     <string name="confirmpasswor">Comfirm Password</string>
     <string name="forgtpasword">Forgot Password?</string>
     <string name="add_varient">Add Varient</string>
+    <string name="enterpassword">Enter password</string>
+    <string name="stock_unit">No. of stock quantity</string>
 </resources>

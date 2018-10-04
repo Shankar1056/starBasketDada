@@ -43,11 +43,12 @@ class LoginActivity: AppCompatActivity() {
                                ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERID, result.data!![0].id)
                                ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USERNAME, result.data!![0].name)
                                ClsGeneral.setPreferences(this@LoginActivity, AppConstants.USEREMAIL, result.data!![0].email)
+                               ClsGeneral.setPreferences(this@LoginActivity, AppConstants.BUSINESSNAME, result.data!![0].business_name)
                                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                                finishAffinity()
                            }
                             else{
-                               val cdd = CustomDialogClass(this@LoginActivity)
+                               val cdd = CustomDialogClass(this@LoginActivity, "login")
                                cdd.show()
                            }
 

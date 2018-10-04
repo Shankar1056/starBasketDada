@@ -21,7 +21,7 @@ public interface ServiceMethods {
     void category(DownlodableCallback<CategoryModel> callback);
     void subCategory(String cat_id, DownlodableCallback<SubCategoryModel> callback);
     void subSubCategory(String sub_cat_id, DownlodableCallback<SubSubCategoryModel> callback);
-    void insertProduct(String sub_cat_id, String sub_sub_cat_id, String name, String unit, String actual_price, String selling_price,
+    void insertProduct(String sub_cat_id, String sub_sub_cat_id, String name, String unit, String productQuantity, String actual_price, String selling_price,
                        String discount, String short_description, String full_description, String seller_id, String created_date,
                        DownlodableCallback<InsertProductModel> callback);
 
@@ -29,7 +29,7 @@ public interface ServiceMethods {
     void signup(String name, String email, String phone, String business_name, String address,String pincode,String password,String created_date, DownlodableCallback<LoginModel> callback);
     void login(String email,String password,String created_date, DownlodableCallback<LoginModel> callback);
     void productList(String seller_id, DownlodableCallback<ProductListModel> callback);
-    void insertUpdate(String id, String prod_id, String unit, String actual_price, String selling_price,
+    void insertUpdate(String id, String prod_id, String unit, String productQuantity, String actual_price, String selling_price,
                       String discount, String short_description, String full_description, String created_date, String insertupdate,
                       DownlodableCallback<InsertProductModel> callback);
 

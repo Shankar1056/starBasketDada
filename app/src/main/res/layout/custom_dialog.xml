@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Thank you for register with us. Your registration is under verification process, please wait for approval. You may contact with us at 9232116121"
+        android:text=""
         android:textSize="15dp"
         android:textStyle="bold"/>
 

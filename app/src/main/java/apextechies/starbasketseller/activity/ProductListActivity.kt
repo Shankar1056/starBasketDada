@@ -62,6 +62,7 @@ class ProductListActivity: AppCompatActivity(){
                             startActivity(Intent(this@ProductListActivity, AddProductAcvtivity::class.java)
                                     .putExtra("id", "")
                                     .putExtra("prod_id", result.data!![pos].id)
+                                    .putExtra("name", result.data!![pos].name)
                                     .putExtra("operation", "insert")
                             )
                         }

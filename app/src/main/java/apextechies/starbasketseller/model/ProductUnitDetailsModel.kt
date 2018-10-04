@@ -10,6 +10,8 @@ class ProductUnitDetailsModel(
     var id: String? = null,
     @SerializedName("prod_id")
     var prod_id: String? = null,
+    @SerializedName("varient")
+    var varient: String? = null,
     @SerializedName("unit")
     var unit: String? = null,
     @SerializedName("actual_price")
@@ -37,12 +39,14 @@ class ProductUnitDetailsModel(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
+            parcel.readString(),
             parcel.readString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
         parcel.writeString(prod_id)
+        parcel.writeString(varient)
         parcel.writeString(unit)
         parcel.writeString(actual_price)
         parcel.writeString(selling_price)
