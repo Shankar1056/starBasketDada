@@ -8,8 +8,11 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import apextechies.starbasketseller.R
+import apextechies.starbasketseller.allinterface.OnClickListenr
 import apextechies.starbasketseller.common.AppConstants
 import apextechies.starbasketseller.common.ClsGeneral
+import apextechies.starbasketseller.common.Utilz
+import apextechies.starbasketseller.splash.LoginActivity
 import apextechies.starbasketseller.splash.Splash
 import apextechies.starbasketseller.splash.SplashActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -81,10 +84,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         } else if (id == R.id.nav_logout) {
 
-            ClsGeneral.setPreferences(this, AppConstants.USERID, "")
+            Utilz.displayMessageAlertWithCllbak("Ary yo sure you want to logged out from this app", this, object : OnClickListenr {
+                override fun onClick(posInt: Int) {
+                    ClsGeneral.setPreferences(this@MainActivity, AppConstants.USERID, "")
 //            FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this, Splash::class.java))
-            finish()
+                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                    finishAffinity()
+                }
+            })
+
+
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

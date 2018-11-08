@@ -28,6 +28,7 @@ class OrderHistory: AppCompatActivity() {
         setContentView(R.layout.activity_productlist)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = intent.getStringExtra("name")
         retrofitDataProvider = RetrofitDataProvider(this)
         RVproduct.layoutManager = LinearLayoutManager(this)
 
@@ -49,7 +50,14 @@ class OrderHistory: AppCompatActivity() {
 
                     })
                 }else{
-//                    Toast.makeText(this@OrderHistory, "" + result.msg, Toast.LENGTH_SHORT).show()
+                    if (intent.getStringExtra("name").equals("New Order")){
+                        noorderfound.setText("No New Order")
+                    }else if (intent.getStringExtra("name").equals("Completed Order")){
+                        noorderfound.setText("No Order Completed Yet")
+                    }
+                    else if (intent.getStringExtra("name").equals("View Edit")){
+                        noorderfound.setText("No Order to View/Edit")
+                    }
                     noorderfound.visibility = View.VISIBLE
                 }
             }

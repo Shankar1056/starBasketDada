@@ -139,8 +139,8 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
     }
 
     @Override
-    public void insertProduct(String sub_cat_id, String sub_sub_cat_id, String name, String unit, String productQuantity, String actual_price, String selling_price, String discount, String short_description, String full_description, String seller_id, String created_date, final DownlodableCallback<InsertProductModel> callback) {
-        createRetrofitService().insertProduct(sub_cat_id, sub_sub_cat_id, name, unit, productQuantity,actual_price, selling_price, discount, short_description, full_description, seller_id, created_date).enqueue(
+    public void insertProduct(String sub_cat_id, String sub_sub_cat_id, String name, String unit, String productQuantity, String productBrand, String actual_price, String selling_price, String discount, String short_description, String full_description, String seller_id, String created_date, final DownlodableCallback<InsertProductModel> callback) {
+        createRetrofitService().insertProduct(sub_cat_id, sub_sub_cat_id, name, unit, productQuantity, productBrand, actual_price, selling_price, discount, short_description, full_description, seller_id, created_date).enqueue(
                 new Callback<InsertProductModel>() {
                     @Override
                     public void onResponse(@NonNull Call<InsertProductModel> call, @NonNull final Response<InsertProductModel> response) {
@@ -274,8 +274,8 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
     }
 
     @Override
-    public void insertUpdate(String id, String prod_id, String unit, String productQuantity, String actual_price, String selling_price, String discount, String short_description, String full_description, String created_date, String insertupdate, final DownlodableCallback<InsertProductModel> callback) {
-        createRetrofitService().insertUpdateVarient(id, prod_id, unit, productQuantity, actual_price, selling_price, discount, short_description, full_description, created_date, insertupdate).enqueue(
+    public void insertUpdate(String id, String prod_id, String unit, String productQuantity, String productBrand, String actual_price, String selling_price, String discount, String short_description, String full_description, String created_date, String insertupdate, final DownlodableCallback<InsertProductModel> callback) {
+        createRetrofitService().insertUpdateVarient(id, prod_id, unit, productQuantity, productBrand, actual_price, selling_price, discount, short_description, full_description, created_date, insertupdate).enqueue(
                 new Callback<InsertProductModel>() {
                     @Override
                     public void onResponse(@NonNull Call<InsertProductModel> call, @NonNull final Response<InsertProductModel> response) {

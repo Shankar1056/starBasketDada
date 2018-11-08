@@ -46,4 +46,5 @@
     <string name="add_varient">Add Varient</string>
     <string name="enterpassword">Enter password</string>
     <string name="stock_unit">No. of stock quantity</string>
+    <string name="brand">Brand</string>
 </resources>

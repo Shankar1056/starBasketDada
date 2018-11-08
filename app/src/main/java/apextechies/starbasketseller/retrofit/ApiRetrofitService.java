@@ -42,7 +42,7 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.INSERTPRODUCT)
     @FormUrlEncoded
     Call<InsertProductModel> insertProduct(@Field("sub_cat_id") String sub_cat_id, @Field("sub_sub_cat_id") String sub_sub_cat_id,
-                                           @Field("name") String name, @Field("unit") String unit,@Field("productQuantity") String productQuantity,
+                                           @Field("name") String name, @Field("unit") String unit,@Field("productQuantity") String productQuantity, @Field("brand") String productBrand,
                                            @Field("actual_price") String actual_price, @Field("selling_price") String selling_price,
                                            @Field("discount") String discount, @Field("short_description") String short_description,
                                            @Field("full_description") String full_description, @Field("seller_id") String seller_id,
@@ -70,7 +70,7 @@ public interface ApiRetrofitService {
     @POST(ApiUrl.INSERTUPDATEVARIENT)
     @FormUrlEncoded
     Call<InsertProductModel> insertUpdateVarient(@Field("id") String sub_cat_id, @Field("prod_id") String prod_id,
-                                               @Field("unit") String unit, @Field("productQuantity") String productQuantity, @Field("actual_price") String actual_price, @Field("selling_price") String selling_price,
+                                               @Field("unit") String unit, @Field("productQuantity") String productQuantity, @Field("brand") String productBrand, @Field("actual_price") String actual_price, @Field("selling_price") String selling_price,
                                                @Field("discount") String discount, @Field("short_description") String short_description,
                                                @Field("full_description") String full_description, @Field("created_date") String created_date,
                                                @Field("insertupdate") String insertupdate);

@@ -3,6 +3,7 @@ package apextechies.starbasketseller.common;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -33,6 +34,7 @@ import java.util.Date;
 import java.util.List;
 
 import apextechies.starbasketseller.R;
+import apextechies.starbasketseller.allinterface.OnClickListenr;
 
 
 public class Utilz {
@@ -221,6 +223,26 @@ public class Utilz {
         }
 
     }
+
+    public static void displayMessageAlertWithCllbak(String Message, final Context context, final OnClickListenr onClickListenr ) {
+        try {
+            new AlertDialog.Builder(context).setMessage(Message).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface arg0, int arg1) {
+                    onClickListenr.onClick(0);
+
+                }
+            }).setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            }).create().show();
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+
 
     public static void showNoInternetConnectionDialog(final Activity mActivity) {
         try {

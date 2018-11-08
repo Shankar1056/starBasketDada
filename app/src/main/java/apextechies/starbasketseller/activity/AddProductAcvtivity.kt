@@ -1,17 +1,18 @@
 package apextechies.starbasketseller.activity
 
 import android.Manifest
-import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.text.TextUtils
-import android.view.View
 import android.widget.Toast
 import apextechies.starbasketseller.R
+import apextechies.starbasketseller.adapter.Imagedapter
+import apextechies.starbasketseller.allinterface.OnItemClickListener
 import apextechies.starbasketseller.common.AppConstants
 import apextechies.starbasketseller.common.ClsGeneral
 import apextechies.starbasketseller.common.Utilz
@@ -20,17 +21,14 @@ import apextechies.starbasketseller.retrofit.DownlodableCallback
 import apextechies.starbasketseller.retrofit.RetrofitDataProvider
 import apextechies.starbasketseller.takeandpickimagelib.DefaultCallback
 import apextechies.starbasketseller.takeandpickimagelib.EasyImage
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_addproduct.*
 import kotlinx.android.synthetic.main.common_toolbar.*
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import pl.tajchert.nammu.Nammu
 import pl.tajchert.nammu.PermissionCallback
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class AddProductAcvtivity : AppCompatActivity() {
@@ -39,6 +37,7 @@ class AddProductAcvtivity : AppCompatActivity() {
     private var retrofitDataProvider: RetrofitDataProvider? = null
     private val permision = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest
             .permission.CAMERA)
+    private var imageAdapter: Imagedapter? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,10 +59,21 @@ class AddProductAcvtivity : AppCompatActivity() {
     private fun initWidgit() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        imageRV.layoutManager = GridLayoutManager(this, 3)
+        imageRV.isNestedScrollingEnabled = false
         retrofitDataProvider = RetrofitDataProvider(this)
+
+        imageAdapter = Imagedapter(this, path, object : OnItemClickListener {
+            override fun onClick(pos: Int, text: String) {
+                path.removeAt(pos)
+                imageAdapter!!.notifyDataSetChanged()
+            }
+        })
+        imageRV.adapter = imageAdapter
 
         if (intent.getStringExtra("operation").equals("update")) {
             supportActionBar!!.title = "Update Varient"
+            submit.setText("Update")
             productName.isClickable = false
             productName.isFocusable = false
             productName.setText(intent.getStringExtra("name"))
@@ -73,7 +83,8 @@ class AddProductAcvtivity : AppCompatActivity() {
             productSelling_price.setText(intent.getStringExtra("selling_price"))
             productShortDescription.setText(intent.getStringExtra("short_description"))
             productFullDescription.setText(intent.getStringExtra("full_description"))
-        }else if(intent.getStringExtra("operation").equals("insert")){
+            productBrand.setText(intent.getStringExtra("product_brand"))
+        } else if (intent.getStringExtra("operation").equals("insert")) {
             supportActionBar!!.title = "Add Varient"
             productName.isFocusable = false
             productName.isClickable = false
@@ -159,19 +170,17 @@ class AddProductAcvtivity : AppCompatActivity() {
         })
     }
 
+    var path = ArrayList<String>()
     private fun onPhotosReturned(returnedPhotos: List<File>) {
         photos.addAll(returnedPhotos)
-        /* textname.add(selectedphotoname)
-         imagesAdapter.notifyDataSetChanged()
-         changAddPhotoText(selectedphotoname)
-         val uri = Uri.fromFile(returnedPhotos[0])
-         val temppath = getPathFromContentUri(uri)
-         path.add(temppath)*/
-        Picasso.with(this)
-                .load(returnedPhotos.get(0))
-                .fit()
-                .centerCrop()
-                .into(imageView)
+        val uri = Uri.fromFile(returnedPhotos[0])
+        path.add(uri.toString())
+        imageAdapter!!.notifyDataSetChanged()
+        /* Picasso.with(this)
+                 .load(returnedPhotos.get(0))
+                 .fit()
+                 .centerCrop()
+                 .into(imageView)*/
     }
 
     private fun validateAndInsert() {
@@ -182,6 +191,7 @@ class AddProductAcvtivity : AppCompatActivity() {
         if (TextUtils.isEmpty(productName.text.toString().trim())) Utilz.showToast(this, "Enter your product name")
         else if (TextUtils.isEmpty(productUnit.text.toString().trim())) Utilz.showToast(this, "Enter varient")
         else if (TextUtils.isEmpty(productQuantity.text.toString().trim())) Utilz.showToast(this, "Enter Quantity")
+        else if (TextUtils.isEmpty(productBrand.text.toString().trim())) Utilz.showToast(this, "Enter product brand price")
         else if (TextUtils.isEmpty(productActual_price.text.toString().trim())) Utilz.showToast(this, "Enter product actual price")
         else if (TextUtils.isEmpty(productSelling_price.text.toString().trim())) Utilz.showToast(this, "Enter product selling price")
         else if (TextUtils.isEmpty(productShortDescription.text.toString().trim())) Utilz.showToast(this, "Enter product short description")
@@ -191,7 +201,7 @@ class AddProductAcvtivity : AppCompatActivity() {
             if (intent.getStringExtra("operation").equals("newinsert")) {
 
                 retrofitDataProvider!!.insertProduct(intent.getStringExtra("sub_cat_id"), intent.getStringExtra("sub_sub_cat_id"),
-                        productName.text.toString(), productUnit.text.toString(),productQuantity.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
+                        productName.text.toString(), productUnit.text.toString(), productQuantity.text.toString(), productBrand.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
                         productFullDescription.text.toString(), ClsGeneral.getStrPreferences(this, AppConstants.USERID), formattedDate, object : DownlodableCallback<InsertProductModel> {
                     override fun onSuccess(result: InsertProductModel) {
                         if (result.status!!.contains(AppConstants.TRUE)) {
@@ -215,7 +225,7 @@ class AddProductAcvtivity : AppCompatActivity() {
                 })
             } else {
                 retrofitDataProvider!!.insertUpdate(intent.getStringExtra("id"), intent.getStringExtra("prod_id"),
-                        productUnit.text.toString(), productQuantity.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
+                        productUnit.text.toString(), productQuantity.text.toString(), productBrand.text.toString(), productActual_price.text.toString(), productSelling_price.text.toString(), "10", productShortDescription.text.toString(),
                         productFullDescription.text.toString(), formattedDate, intent.getStringExtra("operation"), object : DownlodableCallback<InsertProductModel> {
                     override fun onSuccess(result: InsertProductModel) {
                         if (result.status!!.contains(AppConstants.TRUE)) {
