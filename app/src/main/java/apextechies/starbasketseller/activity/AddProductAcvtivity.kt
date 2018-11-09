@@ -83,7 +83,7 @@ class AddProductAcvtivity : AppCompatActivity() {
             productSelling_price.setText(intent.getStringExtra("selling_price"))
             productShortDescription.setText(intent.getStringExtra("short_description"))
             productFullDescription.setText(intent.getStringExtra("full_description"))
-            productBrand.setText(intent.getStringExtra("product_brand"))
+            productBrand.setText(intent.getStringExtra("brand"))
         } else if (intent.getStringExtra("operation").equals("insert")) {
             supportActionBar!!.title = "Add Varient"
             productName.isFocusable = false

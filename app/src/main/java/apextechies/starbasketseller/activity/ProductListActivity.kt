@@ -47,6 +47,7 @@ class ProductListActivity: AppCompatActivity(){
                             startActivity(Intent(this@ProductListActivity, ProductVarientDeleteAcvtivity::class.java)
                                     .putParcelableArrayListExtra("list", result.data!![pos].unitdetails)
                                     .putExtra("name", result.data!![pos].name)
+                                    .putExtra("brand", result.data!![pos].brand)
                                     .putExtra("operation", "update")
                             )
                         }
@@ -54,6 +55,7 @@ class ProductListActivity: AppCompatActivity(){
                             startActivity(Intent(this@ProductListActivity, ProductVarientDeleteAcvtivity::class.java)
                                     .putParcelableArrayListExtra("list", result.data!![pos].unitdetails)
                                     .putExtra("name", result.data!![pos].name)
+                                    .putExtra("brand", result.data!![pos].brand)
                                     .putExtra("operation", "update")
                             )
 
@@ -63,6 +65,7 @@ class ProductListActivity: AppCompatActivity(){
                                     .putExtra("id", "")
                                     .putExtra("prod_id", result.data!![pos].id)
                                     .putExtra("name", result.data!![pos].name)
+                                    .putExtra("brand", result.data!![pos].brand)
                                     .putExtra("operation", "insert")
                             )
                         }

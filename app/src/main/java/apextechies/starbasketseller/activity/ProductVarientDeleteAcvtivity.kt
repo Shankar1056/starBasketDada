@@ -51,6 +51,7 @@ class ProductVarientDeleteAcvtivity : AppCompatActivity() {
                             .putExtra("unit", list[pos].varient)
                             .putExtra("productQuantity", list[pos].unit)
                             .putExtra("discount", list[pos].discount)
+                            .putExtra("brand", intent.getStringExtra("brand"))
                             .putExtra("short_description", list[pos].short_description)
                             .putExtra("full_description", list[pos].full_description)
                             .putExtra("id", list[pos].id)

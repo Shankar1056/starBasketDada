@@ -15,6 +15,8 @@ class ProductListDataModel(
     var sub_sub_cat_id: String? = null,
     @SerializedName("name")
     var name: String? = null,
+    @SerializedName("brand")
+    var brand: String? = null,
     @SerializedName("created_date")
     var created_date: String? = null,
     @SerializedName("sellerdetails")
@@ -23,6 +25,7 @@ class ProductListDataModel(
     var unitdetails: ArrayList<ProductUnitDetailsModel>? = null
 ):Parcelable {
     constructor(parcel: Parcel) : this(
+            parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
@@ -38,6 +41,7 @@ class ProductListDataModel(
         parcel.writeString(sub_cat_id)
         parcel.writeString(sub_sub_cat_id)
         parcel.writeString(name)
+        parcel.writeString(brand)
         parcel.writeString(created_date)
         parcel.writeParcelable(sellerdetails, flags)
         parcel.writeTypedList(unitdetails)

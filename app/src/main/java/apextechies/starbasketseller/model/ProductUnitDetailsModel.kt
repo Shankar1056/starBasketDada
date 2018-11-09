@@ -20,6 +20,7 @@ class ProductUnitDetailsModel(
     var selling_price: String? = null,
     @SerializedName("discount")
     var discount: String? = null,
+
     @SerializedName("short_description")
     var short_description: String? = null,
     @SerializedName("full_description")
