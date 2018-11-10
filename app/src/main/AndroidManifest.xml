@@ -61,6 +61,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.PreAddCategoryctivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.OrderDetails"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
             xmlns:tools="http://schemas.android.com/tools"

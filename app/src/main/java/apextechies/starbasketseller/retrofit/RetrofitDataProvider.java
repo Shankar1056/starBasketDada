@@ -15,6 +15,7 @@ import apextechies.starbasketseller.R;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
+import apextechies.starbasketseller.model.OrderDetailsModel;
 import apextechies.starbasketseller.model.OrderHistoryModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
@@ -371,6 +372,32 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
 
                     @Override
                     public void onFailure(@NonNull Call<OrderHistoryModel> call, @NonNull Throwable t) {
+                        Log.d("Result", "t" + t.getMessage());
+                        callback.onFailure(t.getMessage());
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void getrerDetails(String order_id, final DownlodableCallback<OrderDetailsModel> callback) {
+        createRetrofitService().getOrderDetaisList(order_id).enqueue(
+                new Callback<OrderDetailsModel>() {
+                    @Override
+                    public void onResponse(@NonNull Call<OrderDetailsModel> call, @NonNull final Response<OrderDetailsModel> response) {
+                        if (response.isSuccessful()) {
+                            OrderDetailsModel mobileRegisterPojo = response.body();
+                            callback.onSuccess(mobileRegisterPojo);
+                        } else {
+                            if (response.code() == 401) {
+                                callback.onUnauthorized(response.code());
+                            } else {
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<OrderDetailsModel> call, @NonNull Throwable t) {
                         Log.d("Result", "t" + t.getMessage());
                         callback.onFailure(t.getMessage());
                     }

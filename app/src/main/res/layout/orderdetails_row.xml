@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shadow"
+    android:paddingBottom="10dp"
+    android:layout_marginTop="5dp">
+
+    <TextView
+        android:id="@+id/textIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/celias_medium"
+        android:text="Item Name: "
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item Name: "
+        android:textSize="13sp"
+        app:layout_constraintTop_toTopOf="@+id/textIN"
+        app:layout_constraintBottom_toBottomOf="@+id/textIN"
+        app:layout_constraintStart_toEndOf="@id/textIN" />
+
+    <TextView
+        android:id="@+id/unitPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/celias_medium"
+        android:text="Unit Price: "
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textIN" />
+
+    <TextView
+        android:id="@+id/textUnitPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="500 "
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@id/unitPrice"
+        app:layout_constraintTop_toTopOf="@+id/unitPrice"
+        app:layout_constraintBottom_toBottomOf="@+id/unitPrice"/>
+
+    <TextView
+        android:id="@+id/quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity:"
+        app:layout_constraintTop_toTopOf="@+id/unitPrice"
+        app:layout_constraintBottom_toBottomOf="@+id/unitPrice"
+        android:textSize="14sp"
+        android:fontFamily="@font/celias_medium"
+        app:layout_constraintRight_toLeftOf="@+id/textQuantity"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/textQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        app:layout_constraintTop_toTopOf="@+id/unitPrice"
+        app:layout_constraintBottom_toBottomOf="@+id/unitPrice"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/totalprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Price:"
+        app:layout_constraintTop_toBottomOf="@+id/textQuantity"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/celias_medium"
+        app:layout_constraintRight_toLeftOf="@+id/texttotalprice"
+        android:layout_marginRight="10dp"/>
+    <TextView
+        android:id="@+id/texttotalprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000"
+        app:layout_constraintTop_toTopOf="@+id/totalprice"
+        app:layout_constraintBottom_toBottomOf="@+id/totalprice"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="10dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

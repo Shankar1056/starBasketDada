@@ -4,6 +4,7 @@ package apextechies.starbasketseller.retrofit;
 import apextechies.starbasketseller.model.CategoryModel;
 import apextechies.starbasketseller.model.InsertProductModel;
 import apextechies.starbasketseller.model.LoginModel;
+import apextechies.starbasketseller.model.OrderDetailsModel;
 import apextechies.starbasketseller.model.OrderHistoryModel;
 import apextechies.starbasketseller.model.ProductListModel;
 import apextechies.starbasketseller.model.SubCategoryModel;
@@ -82,8 +83,14 @@ public interface ApiRetrofitService {
     @FormUrlEncoded
     Call<OrderHistoryModel> getOrderHitory(@Field("seller_id") String seller_id);
 
+
+    @POST(ApiUrl.ORDERDETAILSSELLER)
+    @FormUrlEncoded
+    Call<OrderDetailsModel> getOrderDetaisList(@Field("order_id") String user_id);
+
     @POST(ApiUrl.UPLOADIMAGE)
     @Multipart
     Call<Void> uploadImage(@Part MultipartBody.Part image, @Part("img") RequestBody name);
+
 
 }

@@ -80,6 +80,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         } else if (id == R.id.nav_ordermanagment) {
 
+            startActivity(Intent(this@MainActivity, OrderHistory::class.java)
+                    .putExtra("name", "Order History"))
+
         } else if (id == R.id.nav_paymentcollection) {
 
         } else if (id == R.id.nav_logout) {

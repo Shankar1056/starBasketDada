@@ -17,4 +17,6 @@ public class ApiUrl {
     public static final String DELETEVARIENT = "delete_varient";
     public static final String ORDERHISTORY = "get_orderistory_seller";
     public static final String UPLOADIMAGE = "upload_image";
+    public static final String ORDERLIST = "get_orderistory_seller";
+    public static final String ORDERDETAILSSELLER = "get_order_details_seller";
 }

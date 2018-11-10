@@ -44,8 +44,12 @@ class OrderHistory: AppCompatActivity() {
             override fun onSuccess(result: OrderHistoryModel) {
                 Utilz.closeDialog()
                 if (result.status!!.contains(AppConstants.TRUE)) {
-                    RVproduct.adapter = OrderHistoryAdapter(this@OrderHistory, result.data!!, intent.getStringExtra("name"), R.layout.product_list_row, object : OnItemClickListener {
+                    RVproduct.adapter = OrderHistoryAdapter(this@OrderHistory, result.data!!, intent.getStringExtra("name"), R.layout.order_list_row, object : OnItemClickListener {
                         override fun onClick(pos: Int, text: String) {
+                            if (intent.getStringExtra("name").equals("Order History")){
+                                startActivity(Intent(this@OrderHistory, OrderDetails::class.java)
+                                        .putExtra("orderid", result.data[pos].id))
+                            }
                         }
 
                     })
@@ -57,6 +61,9 @@ class OrderHistory: AppCompatActivity() {
                     }
                     else if (intent.getStringExtra("name").equals("View Edit")){
                         noorderfound.setText("No Order to View/Edit")
+                    }
+                    else if (intent.getStringExtra("name").equals("Order History")){
+                        noorderfound.setText("No Order History Found")
                     }
                     noorderfound.visibility = View.VISIBLE
                 }
