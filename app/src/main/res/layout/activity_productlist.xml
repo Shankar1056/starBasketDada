@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/textDA"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Shankar Kumar, 403 Sanjay Nagar, Bangalore 56061. "
+        android:text=" "
         android:visibility="gone"
         android:layout_marginLeft="15dp"
         android:textSize="13sp"/>
@@ -49,6 +49,37 @@
         android:layout_marginLeft="1dp">
 
     </android.support.v7.widget.RecyclerView>
+<View
+    android:id="@+id/priceView"
+    android:layout_width="match_parent"
+    android:layout_height="0.5dp"
+    android:background="@color/grey_750"
+    app:layout_constraintTop_toBottomOf="@+id/RVproduct"
+    android:layout_marginTop="10dp"
+    android:visibility="gone"/>
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceView"
+        android:layout_margin="15dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/celias_medium"
+        android:text="Total Amount:"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/textTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/amount"
+        app:layout_constraintBottom_toBottomOf="@+id/amount"
+        android:layout_marginEnd="15dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/celias_medium"
+        android:text=""/>
+
 
     <TextView
         android:id="@+id/noorderfound"

@@ -86,7 +86,7 @@ public interface ApiRetrofitService {
 
     @POST(ApiUrl.ORDERDETAILSSELLER)
     @FormUrlEncoded
-    Call<OrderDetailsModel> getOrderDetaisList(@Field("order_id") String user_id);
+    Call<OrderDetailsModel> getOrderDetaisList(@Field("order_id") String user_id, @Field("address_id") String address_id);
 
     @POST(ApiUrl.UPLOADIMAGE)
     @Multipart

@@ -48,7 +48,8 @@ class OrderHistory: AppCompatActivity() {
                         override fun onClick(pos: Int, text: String) {
                             if (intent.getStringExtra("name").equals("Order History")){
                                 startActivity(Intent(this@OrderHistory, OrderDetails::class.java)
-                                        .putExtra("orderid", result.data[pos].id))
+                                        .putExtra("orderid", result.data[pos].id)
+                                        .putExtra("address_id", result.data[pos].address_id))
                             }
                         }
 

@@ -28,9 +28,31 @@ class OrderetailsDataModel {
     var varient: String?= null
     @SerializedName("image")
     var image: String?= null
-    @SerializedName("seller_id")
-    var seller_id: String?= null
     @SerializedName("status")
     var status: String?= null
+    @SerializedName("adress")
+    var adress: ArrayList<AddressModel>?= null
 
+}
+
+class AddressModel {
+
+    @SerializedName("id")
+    var id: String?= null
+    @SerializedName("state_id")
+    var state_id: String?= null
+    @SerializedName("user_id")
+    var user_id: String?= null
+    @SerializedName("pincode")
+    var pincode: String?= null
+    @SerializedName("address1")
+    var address1: String?= null
+    @SerializedName("address2")
+    var address2: String?= null
+    @SerializedName("name")
+    var name: String?= null
+    @SerializedName("city")
+    var city: String?= null
+    @SerializedName("landmark")
+    var landmark: String?= null
 }

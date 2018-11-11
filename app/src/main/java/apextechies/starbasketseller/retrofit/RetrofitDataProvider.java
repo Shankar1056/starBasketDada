@@ -380,8 +380,8 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
     }
 
     @Override
-    public void getrerDetails(String order_id, final DownlodableCallback<OrderDetailsModel> callback) {
-        createRetrofitService().getOrderDetaisList(order_id).enqueue(
+    public void getrerDetails(String order_id, String address_id, final DownlodableCallback<OrderDetailsModel> callback) {
+        createRetrofitService().getOrderDetaisList(order_id, address_id).enqueue(
                 new Callback<OrderDetailsModel>() {
                     @Override
                     public void onResponse(@NonNull Call<OrderDetailsModel> call, @NonNull final Response<OrderDetailsModel> response) {
