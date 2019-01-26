@@ -55,7 +55,7 @@ public interface ApiRetrofitService {
 
     @POST(ApiUrl.SIGNUP)
     @FormUrlEncoded
-    Call<LoginModel> signup(@Field("name") String name, @Field("email") String email, @Field("phone") String phone,
+    Call<LoginModel> signup(@Field("name") String name,@Field("lastname") String lastname, @Field("email") String email, @Field("phone") String phone,
                             @Field("business_name") String business_name, @Field("address") String address,
                             @Field("pincode") String picode, @Field("password") String password,
                             @Field("created_date") String created_date);

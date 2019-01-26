@@ -21,9 +21,7 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.nav_header_main.view.*
 
-
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +46,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(Intent(this@MainActivity,OrderHistory::class.java)
                     .putExtra("name", "New Order"))
         }
-        completedorder.setOnClickListener {
+       /* completedorder.setOnClickListener {
             startActivity(Intent(this@MainActivity,OrderHistory::class.java)
                     .putExtra("name", "Completed Order"))
-        }
+        }*/
         vieweitCV.setOnClickListener {
             startActivity(Intent(this@MainActivity,OrderHistory::class.java)
                     .putExtra("name", "View Edit"))
@@ -87,7 +85,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         } else if (id == R.id.nav_logout) {
 
-            Utilz.displayMessageAlertWithCllbak("Ary yo sure you want to logged out from this app", this, object : OnClickListenr {
+            Utilz.displayMessageAlertWithCllbak("Are you sure you want to logged out from this app?", this, object : OnClickListenr {
                 override fun onClick(posInt: Int) {
                     ClsGeneral.setPreferences(this@MainActivity, AppConstants.USERID, "")
 //            FirebaseAuth.getInstance().signOut()

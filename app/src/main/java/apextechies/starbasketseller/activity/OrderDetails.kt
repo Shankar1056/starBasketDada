@@ -13,8 +13,8 @@ import apextechies.starbasketseller.model.OrderDetailsModel
 import apextechies.starbasketseller.model.OrderetailsDataModel
 import apextechies.starbasketseller.retrofit.DownlodableCallback
 import apextechies.starbasketseller.retrofit.RetrofitDataProvider
-import kotlinx.android.synthetic.main.activity_productlist.*
 import kotlinx.android.synthetic.main.common_toolbar.*
+import kotlinx.android.synthetic.main.fragment_order_hstory.*
 
 class OrderDetails : AppCompatActivity() {
 
@@ -22,7 +22,7 @@ class OrderDetails : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_productlist)
+        setContentView(R.layout.order_details)
 
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

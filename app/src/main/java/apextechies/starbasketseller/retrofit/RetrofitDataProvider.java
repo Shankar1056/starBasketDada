@@ -194,8 +194,8 @@ public class RetrofitDataProvider extends AppCompatActivity implements ServiceMe
     }
 
     @Override
-    public void signup(String name, String email, String phone, String business_name, String address,String pincode,String passwor, String created_date, final DownlodableCallback<LoginModel> callback) {
-        createRetrofitService().signup(name, email, phone, business_name, address, pincode, passwor, created_date).enqueue(
+    public void signup(String name, String lastname, String email, String phone, String business_name, String address,String pincode,String passwor, String created_date, final DownlodableCallback<LoginModel> callback) {
+        createRetrofitService().signup(name, lastname, email, phone, business_name, address, pincode, passwor, created_date).enqueue(
                 new Callback<LoginModel>() {
                     @Override
                     public void onResponse(@NonNull Call<LoginModel> call, @NonNull final Response<LoginModel> response) {

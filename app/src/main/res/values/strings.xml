@@ -25,6 +25,7 @@
     <string name="add_product">Add Product</string>
     <string name="register">SignUp</string>
     <string name="name">Enter full name</string>
+    <string name="firstname">Enter first name</string>
     <string name="emailadress">Enter your email</string>
     <string name="mobile">Enter 10 digit mobile number</string>
     <string name="businessname">Enter your business name</string>
@@ -47,4 +48,8 @@
     <string name="enterpassword">Enter password</string>
     <string name="stock_unit">No. of stock quantity</string>
     <string name="brand">Brand</string>
+    <string name="lastname">Enter last name</string>
+    <string name="competed_order">Completed Order</string>
+    <string name="order_history">Order History</string>
+    <string name="cancel_order">Cancel Order</string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@mipmap/management"
+        android:title="@string/order_history" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@mipmap/completed_order"
+        android:title="@string/competed_order" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@mipmap/completed_order"
+        android:title="@string/cancel_order" />
+
+</menu>

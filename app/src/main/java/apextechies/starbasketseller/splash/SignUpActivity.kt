@@ -3,10 +3,9 @@ package apextechies.starbasketseller.splash
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
-import android.widget.RadioButton
 import android.widget.Toast
 import apextechies.starbasketseller.R
+import apextechies.starbasketseller.activity.CustomDialogClass
 import apextechies.starbasketseller.activity.MainActivity
 import apextechies.starbasketseller.common.AppConstants
 import apextechies.starbasketseller.common.ClsGeneral
@@ -18,11 +17,9 @@ import kotlinx.android.synthetic.main.activity_signup.*
 import kotlinx.android.synthetic.main.common_search_toolbar.*
 import java.text.SimpleDateFormat
 import java.util.*
-import apextechies.starbasketseller.activity.CustomDialogClass
 
 
-
-class SignUpActivity : AppCompatActivity(){
+class SignUpActivity : AppCompatActivity() {
     private var retrofitDataProvider: RetrofitDataProvider? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +48,10 @@ class SignUpActivity : AppCompatActivity(){
         val c = Calendar.getInstance().getTime()
         val df = SimpleDateFormat("yyyy-MM-dd")
         val formattedDate = df.format(c)
-        if (Name.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your name")
+        if (Name.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your first name")
+        else if (LastName.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your last name")
         else if (mobile.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your mobile number")
-        else if (mobile.text.toString().trim().length<10) Utilz.showToast(this, "Enter 10 digit mobile number")
+        else if (mobile.text.toString().trim().length < 10) Utilz.showToast(this, "Enter 10 digit mobile number")
         else if (email.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your email")
         else if (!Utilz.isValidEmail1(email.text.toString())) Utilz.showToast(this, "Enter valid email")
         else if (business_name.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your business name")
@@ -62,9 +60,9 @@ class SignUpActivity : AppCompatActivity(){
         else if (password.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your password")
         else if (conimPassword.text.toString().trim().equals("")) Utilz.showToast(this, "Enter your conimPassword")
         else if (!password.text.toString().trim().equals(conimPassword.text.toString().trim())) Utilz.showToast(this, "passwor & conimPassword are not same")
-        else{
+        else {
             Utilz.showDailog(this, resources.getString(R.string.pleaee_wait))
-            retrofitDataProvider!!.signup(Name.text.toString(), email.text.toString(), mobile.text.toString(), business_name.text.toString(),  address.text.toString(),pincode.text.toString(),password.text.toString(), formattedDate, object : DownlodableCallback<LoginModel> {
+            retrofitDataProvider!!.signup(Name.text.toString(), LastName.text.toString(), email.text.toString(), mobile.text.toString(), business_name.text.toString(), address.text.toString(), pincode.text.toString(), password.text.toString(), formattedDate, object : DownlodableCallback<LoginModel> {
                 override fun onSuccess(result: LoginModel) {
                     if (result.status!!.contains(AppConstants.TRUE)) {
                         Utilz.closeDialog()
@@ -74,17 +72,17 @@ class SignUpActivity : AppCompatActivity(){
                             ClsGeneral.setPreferences(this@SignUpActivity, AppConstants.USEREMAIL, result.data!![0].email)
                             startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
                             finishAffinity()
-                        }
-                        else{
+                        } else {
                             val cdd = CustomDialogClass(this@SignUpActivity, "signup")
                             cdd.show()
                         }
 
-                    }else{
+                    } else {
                         Utilz.closeDialog()
                         Toast.makeText(this@SignUpActivity, "" + result.msg, Toast.LENGTH_SHORT).show()
                     }
                 }
+
                 override fun onFailure(error: String) {
                     Utilz.closeDialog()
                     Toast.makeText(this@SignUpActivity, "" + error, Toast.LENGTH_SHORT).show()

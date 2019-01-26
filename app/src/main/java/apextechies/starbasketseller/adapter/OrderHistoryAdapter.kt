@@ -37,10 +37,15 @@ class OrderHistoryAdapter(private val context: Context, private var catName: Arr
         holder.tvTransactionId.setText("Transaction Id: "+catName[position].transaction_id)
         holder.tvDate.setText("Order Date: "+catName[position].order_date)
         }
-        if (name.equals("Completed Order") && catName[position].order_status.equals("2")){
+       else if (name.equals("Completed Order") && catName[position].order_status.equals("3")){
         holder.tvTransactionId.setText("Transaction Id: "+catName[position].transaction_id)
         holder.tvDate.setText("Order Date: "+catName[position].order_date)
         }
+        else if (name.equals("Cancel Order") && catName[position].order_status.equals("4")){
+            holder.tvTransactionId.setText("Transaction Id: "+catName[position].transaction_id)
+            holder.tvDate.setText("Order Date: "+catName[position].order_date)
+        }
+
         else if (name.equals("View Edit")){
         holder.tvTransactionId.setText("Transaction Id: "+catName[position].transaction_id)
         holder.tvDate.setText("Order Date: "+catName[position].order_date)
